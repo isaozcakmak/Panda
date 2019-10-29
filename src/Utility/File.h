@@ -1,6 +1,7 @@
 #ifndef PANDA_UTILITY_FILE
 #define PANDA_UTILITY_FILE
 
+#include <fstream>
 #include <string>
 
 namespace Utility
@@ -15,6 +16,7 @@ namespace Utility
 
 	private:
 		std::string m_filePath;
+		std::fstream m_file;
 	};
 }
 
