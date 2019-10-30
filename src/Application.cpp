@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		Utility::File file(filePath);
+		Utility::File file(filePath, true);
 	}
 
 	return 0;

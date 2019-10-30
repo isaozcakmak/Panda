@@ -9,7 +9,10 @@ namespace Utility
 	class File
 	{
 	public:
-		File(const std::string& filePath);
+		File(const std::string& filePath, bool create = false);
+		~File();
+		std::string readLine();
+		void writeLine(const std::string& data);
 
 	public:
 		File(const File& other) = delete;
