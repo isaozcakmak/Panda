@@ -8,7 +8,7 @@ namespace Utility
 	class Logger
 	{
 	public:
-		static void Initialize(const std::string& projectName)
+		static void Initialize()
 		{
 			Instance();
 			logFilePath();

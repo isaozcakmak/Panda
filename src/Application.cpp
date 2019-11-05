@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <Utility/File.h>
+#include <Utility/Logger.h>
 
 int main(int argc, char* argv[])
 {
@@ -16,6 +17,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
+		Utility::Logger::Initialize();
 		Utility::File file(filePath, true);
 	}
 
