@@ -2,6 +2,7 @@
 #define PANDA_UTILITY_LOGGER
 
 #include <Utility/File.h>
+#include <msxml.h>
 
 namespace Utility
 {
@@ -22,6 +23,10 @@ namespace Utility
 
 	private:
 		Logger();
+		std::string getClock();
+		std::string getDate();
+		std::string getProgramClock();
+		std::string convertClockToString(int hour, int minute, int second);
 
 		static const std::string& logFilePath()
 		{
