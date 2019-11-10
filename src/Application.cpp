@@ -2,6 +2,7 @@
 #include <string>
 #include <Utility/File.h>
 #include <Utility/Logger.h>
+#include <Utility/Interpreter.h>
 
 int main(int argc, char* argv[])
 {
