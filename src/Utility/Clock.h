@@ -5,6 +5,15 @@ namespace Utility
 {
 	class Clock
 	{
+	public:
+		Clock();
+		~Clock();
+
+	private:
+		int m_hours;
+		int m_minute;
+		int m_second;
+
 	};
 }
 
