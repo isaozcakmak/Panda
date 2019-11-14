@@ -6,7 +6,7 @@ namespace Utility
 	class Clock
 	{
 	public:
-		Clock();
+		Clock(int hours, int minute, int second);
 		~Clock();
 
 	private:
