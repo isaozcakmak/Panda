@@ -1,6 +1,8 @@
 #ifndef PANDA_UTILITY_CLOCK
 #define PANDA_UTILITY_CLOCK
 
+#include <string>
+
 namespace Utility
 {
 	class Clock
@@ -8,6 +10,8 @@ namespace Utility
 	public:
 		Clock(int hours, int minute, int second);
 		~Clock();
+
+		static const std::string Now();
 
 	private:
 		int m_hours;
