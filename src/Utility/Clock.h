@@ -12,6 +12,7 @@ namespace Utility
 		~Clock();
 
 		static const std::string Now();
+		const std::string ToString() const;
 
 	private:
 		int m_hours;
