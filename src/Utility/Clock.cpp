@@ -9,6 +9,7 @@ namespace Utility
 		m_hour(hour), m_minute(minute), m_second(second)
 	{
 	}
+
 	const std::string Clock::Now()
 	{
 		auto now = std::chrono::system_clock::now();
@@ -17,8 +18,26 @@ namespace Utility
 
 		return std::string();
 	}
+
 	const std::string Clock::ToString() const
 	{
-		return std::string();
+		std::string hourString = std::to_string(m_hour);
+		std::string minuteString = std::to_string(m_minute);
+		std::string secondString = std::to_string(m_second);
+
+		if (hourString.size() < 2)
+		{
+			hourString = "0" + hourString;
+		}
+		if (minuteString.size() < 2)
+		{
+			minuteString = "0" + minuteString;
+		}
+		if (secondString.size() < 2)
+		{
+			secondString = "0" + secondString;
+		}
+
+		return hourString + ":" + minuteString + ":" + secondString;
 	}
 }

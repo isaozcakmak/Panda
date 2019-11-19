@@ -2,6 +2,7 @@
 #define PANDA_UTILITY_LOGGER
 
 #include <Utility/File.h>
+#include <string>
 
 namespace Utility
 {
