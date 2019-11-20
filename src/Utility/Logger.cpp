@@ -1,4 +1,5 @@
 #include <Utility/Logger.h>
+#include <Utility/Clock.h>
 
 #include <chrono>
 #include <ctime>
@@ -10,18 +11,9 @@ namespace Utility
 	Logger::Logger()
 	{
 		std::string logMessage = "\r\n-------------------------------------------------------\r\n\r\n";
-		logMessage += "Panda - " + getDate() + " " + getClock() + "\r\n";
+		logMessage += "Panda - " + getDate() + " " + Clock::Now().ToString() + "\r\n";
 		
 		m_file.writeLine(logMessage);
-	}
-
-	std::string Logger::getClock()
-	{
-		auto now = std::chrono::system_clock::now();
-		auto now_c = std::chrono::system_clock::to_time_t(now);
-		auto tmDate = std::localtime(&now_c);
-
-		return convertClockToString(tmDate->tm_hour, tmDate->tm_min, tmDate->tm_sec);
 	}
 
 	std::string Logger::getDate()

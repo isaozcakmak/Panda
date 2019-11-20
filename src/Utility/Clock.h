@@ -9,10 +9,12 @@ namespace Utility
 	{
 	public:
 		Clock(int hour, int minute, int second);
-		~Clock();
+		~Clock() {}
 
-		static const std::string Now();
+		static const Clock Now();
 		const std::string ToString() const;
+
+		operator const std::string() const;
 
 	private:
 		int m_hour;

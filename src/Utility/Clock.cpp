@@ -10,16 +10,21 @@ namespace Utility
 	{
 	}
 
-	const std::string Clock::Now()
+	const Clock Clock::Now()
 	{
 		auto now = std::chrono::system_clock::now();
 		auto now_c = std::chrono::system_clock::to_time_t(now);
 		auto tmDate = std::localtime(&now_c);
 
-		return std::string();
+		return Clock(tmDate->tm_hour, tmDate->tm_min, tmDate->tm_sec);
 	}
 
 	const std::string Clock::ToString() const
+	{
+		return *this;
+	}
+
+	Clock::operator const std::string() const
 	{
 		std::string hourString = std::to_string(m_hour);
 		std::string minuteString = std::to_string(m_minute);
