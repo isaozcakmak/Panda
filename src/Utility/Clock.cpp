@@ -5,6 +5,8 @@
 
 namespace Utility
 {
+	static auto g_ProgramStart = std::chrono::system_clock::now();
+
 	Clock::Clock(int hour, int minute, int second) : 
 		m_hour(hour), m_minute(minute), m_second(second)
 	{
@@ -17,6 +19,18 @@ namespace Utility
 		auto tmDate = std::localtime(&now_c);
 
 		return Clock(tmDate->tm_hour, tmDate->tm_min, tmDate->tm_sec);
+	}
+
+	const Clock Clock::ProgramClock()
+	{
+		auto now = std::chrono::system_clock::now();
+		auto programDuration = now - g_ProgramStart;
+
+		auto hour = std::chrono::duration_cast<std::chrono::hours>(programDuration);
+		auto minute = std::chrono::duration_cast<std::chrono::minutes>(programDuration);
+		auto second = std::chrono::duration_cast<std::chrono::seconds>(programDuration);
+
+		return Clock(hour.count(), minute.count() % 60, second.count() % 60);
 	}
 
 	const std::string Clock::ToString() const

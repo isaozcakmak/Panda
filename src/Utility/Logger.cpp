@@ -6,7 +6,6 @@
 
 namespace Utility
 {
-	static auto g_ProgramStart = std::chrono::system_clock::now();
 
 	Logger::Logger()
 	{
@@ -36,18 +35,6 @@ namespace Utility
 		}
 
 		return day + "." + month + "." + year;
-	}
-
-	std::string Logger::getProgramClock()
-	{
-		auto now = std::chrono::system_clock::now();
-		auto programDuration = now - g_ProgramStart;
-
-		auto hour = std::chrono::duration_cast<std::chrono::hours>(programDuration);
-		auto minute = std::chrono::duration_cast<std::chrono::minutes>(programDuration);
-		auto second = std::chrono::duration_cast<std::chrono::seconds>(programDuration);
-
-		return convertClockToString(hour.count(), minute.count() % 60, second.count() % 60);
 	}
 
 	std::string Logger::convertClockToString(int hour, int minute, int second)

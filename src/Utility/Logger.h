@@ -24,7 +24,6 @@ namespace Utility
 	private:
 		Logger();
 		std::string getDate();
-		std::string getProgramClock();
 		std::string convertClockToString(int hour, int minute, int second);
 
 		static const std::string& logFilePath()
