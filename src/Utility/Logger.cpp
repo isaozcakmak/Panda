@@ -37,25 +37,4 @@ namespace Utility
 		return day + "." + month + "." + year;
 	}
 
-	std::string Logger::convertClockToString(int hour, int minute, int second)
-	{
-		std::string hourString = std::to_string(hour);
-		std::string minuteString = std::to_string(minute);
-		std::string secondString = std::to_string(second);
-
-		if (hourString.size() < 2)
-		{
-			hourString = "0" + hourString;
-		}
-		if (minuteString.size() < 2)
-		{
-			minuteString = "0" + minuteString;
-		}
-		if (secondString.size() < 2)
-		{
-			secondString = "0" + secondString;
-		}
-
-		return hourString + ":" + minuteString + ":" + secondString;
-	}
 }
