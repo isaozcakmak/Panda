@@ -14,8 +14,8 @@ namespace Utility
 		static const Clock Now();
 		static const Clock ProgramClock();
 
-		const std::string ToString() const;
-
+		const std::string toString() const;
+		
 		operator const std::string() const;
 
 	private:

@@ -2,6 +2,7 @@
 
 #include <chrono>
 #include <ctime>
+#include "Date.h"
 
 namespace Utility
 {
@@ -33,7 +34,7 @@ namespace Utility
 		return Clock(hour.count(), minute.count() % 60, second.count() % 60);
 	}
 
-	const std::string Clock::ToString() const
+	const std::string Clock::toString() const
 	{
 		return *this;
 	}
@@ -59,4 +60,5 @@ namespace Utility
 
 		return hourString + ":" + minuteString + ":" + secondString;
 	}
+
 }

@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Utility\Clock.cpp" />
+    <ClCompile Include="src\Utility\Date.cpp" />
     <ClCompile Include="src\Utility\File.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Utility\Interpreter.cpp" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utility\Clock.h" />
+    <ClInclude Include="src\Utility\Date.h" />
     <ClInclude Include="src\Utility\File.h" />
     <ClInclude Include="src\Utility\Interpreter.h" />
     <ClInclude Include="src\Utility\Logger.h" />

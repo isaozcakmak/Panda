@@ -1,5 +1,6 @@
 #include <Utility/Logger.h>
 #include <Utility/Clock.h>
+#include <Utility/Date.h>
 
 #include <chrono>
 #include <ctime>
@@ -10,31 +11,9 @@ namespace Utility
 	Logger::Logger()
 	{
 		std::string logMessage = "\r\n-------------------------------------------------------\r\n\r\n";
-		logMessage += "Panda - " + getDate() + " " + Clock::Now().ToString() + "\r\n";
+		logMessage += "Panda - " + Date::Now().toString() + " " + Clock::Now().toString() + "\r\n";
 		
 		m_file.writeLine(logMessage);
-	}
-
-	std::string Logger::getDate()
-	{
-		auto now = std::chrono::system_clock::now();
-		auto now_c = std::chrono::system_clock::to_time_t(now);
-		auto tmDate = std::localtime(&now_c);
-
-		std::string day = std::to_string(tmDate->tm_mday);
-		std::string month = std::to_string(tmDate->tm_mon + 1);
-		std::string year = std::to_string(tmDate->tm_year + 1900);
-
-		if (day.size() < 2)
-		{
-			day = "0" + day;
-		}
-		if (month.size() < 2)
-		{
-			month = "0" + month;
-		}
-
-		return day + "." + month + "." + year;
 	}
 
 }
