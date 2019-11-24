@@ -8,7 +8,6 @@
 
 namespace Utility
 {
-
 	static bool DoesFolderExists(const std::string& path);
 	static void CreateFolder(const std::string& path);
 
