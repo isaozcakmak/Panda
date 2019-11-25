@@ -38,9 +38,17 @@ namespace Utility
 
 	std::string Interpreter::getPrintString()
 	{
-		int startIndex = m_code.find_first_of(' ') + 2;
-		int endIndex = m_code.find_last_of('"');
-		return m_code.substr(startIndex, endIndex - startIndex);
+		std::string str = "";
+
+		for (size_t i = m_code.find_first_of('"'); i < m_code.find_last_of('"'); i++)
+		{
+			if ( m_code[i] != '"' )
+			{
+				str += m_code[i];
+			}
+		}
+
+		return str;
 	}
 
 }
