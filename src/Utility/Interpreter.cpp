@@ -47,7 +47,7 @@ namespace Utility
 				str += m_code[i];
 			}
 		}
-
+		
 		return str;
 	}
 
