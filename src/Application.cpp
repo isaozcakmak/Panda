@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 	}
 
 	#ifdef PANDA_DEBUG
-		filePath = "D:\\Workspaces\\VS2019\\Panda\\bin\\x64\\Debug\\test.txt";
+		filePath = ".\\bin\\x64\\Debug\\test.pnd";
 	#endif // PANDA_DEBUG
 
 	if ( filePath.empty() )
@@ -24,8 +24,9 @@ int main(int argc, char* argv[])
 	{
 		Utility::Logger::Initialize();
 		Utility::File file(filePath, false);
-		std::string line = file.readLine();
-		Utility::Interpreter interpreter(line);
+		//std::string line = file.readLine();
+		auto data = file.readAllFile();
+		Utility::Interpreter interpreter(data[0]);
 		interpreter.run();
 	}
 

@@ -67,6 +67,22 @@ namespace Utility
 		}
 	}
 
+	std::vector<std::string> File::readAllFile()
+	{
+		std::vector<std::string> data;
+
+		if ( m_file.is_open() )
+		{
+			std::string line = "";
+			while (std::getline(m_file, line))
+			{
+				data.push_back(line);
+			}
+		}
+
+		return data;
+	}
+
 	void File::writeLine(const std::string& data)
 	{
 		if ( m_file.is_open() )
