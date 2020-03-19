@@ -31,7 +31,23 @@ namespace Utility
 		Utility::Command operatorValue = getOperator(m_code[0].at(1));
 		int leftValue = getDigit(m_code[0].at(2));
 
-		std::cout << rightValue + leftValue << std::endl;
+		int result = INT_MAX;
+
+		switch (operatorValue)
+		{
+		case Utility::Command::plus:
+			std::cout << rightValue + leftValue << std::endl;
+			break;
+		case Utility::Command::minus:
+			std::cout << rightValue - leftValue << std::endl;
+			break;
+		case Utility::Command::print:
+			break;
+		case Utility::Command::unknown:
+			break;
+		default:
+			break;
+		}
 
 	}
 
