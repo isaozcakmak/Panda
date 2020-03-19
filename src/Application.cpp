@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 		Utility::File file(filePath, false);
 		//std::string line = file.readLine();
 		auto data = file.readAllFile();
-		Utility::Interpreter interpreter(data[0]);
+		Utility::Interpreter interpreter(data);
 		interpreter.run();
 	}
 

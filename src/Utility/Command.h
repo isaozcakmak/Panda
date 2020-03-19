@@ -3,10 +3,17 @@
 
 namespace Utility
 {
-	enum Command
+	enum class Command
 	{
-		print = 0x00,
+		// Math
+		plus = 0x00,
+		minus = 0x01,
+
+
+		print = 0x06,
 		
+
+
 		unknown = 0xFF
 	};
 }

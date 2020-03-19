@@ -3,23 +3,27 @@
 
 #include <Utility/Command.h>
 #include <string>
+#include <vector>
 
 namespace Utility
 {
 	class Interpreter
 	{
 	public:
-		Interpreter(const std::string code);
+		Interpreter(const std::vector<std::string> code);
 		~Interpreter() {}
 
 		void run();
 
 	private:
-		Utility::Command getCommand();
-		std::string getPrintString();
+		//Utility::Command getCommand();
+		//std::string getPrintString();
+
+		int getDigit(char value);
+		Utility::Command getOperator(char value);
 
 	private:
-		std::string m_code;
+		std::vector<std::string> m_code;
 	};
 }
 
