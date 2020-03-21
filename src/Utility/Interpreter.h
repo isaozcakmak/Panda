@@ -19,6 +19,10 @@ namespace Utility
 		//Utility::Command getCommand();
 		//std::string getPrintString();
 
+		int getNumber(std::string value, int& index);
+		Utility::Command getOperator(std::string value, int& index);
+		void skipWhitespace(int& index);
+
 		int getDigit(char value);
 		Utility::Command getOperator(char value);
 

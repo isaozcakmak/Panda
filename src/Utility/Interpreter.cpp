@@ -27,12 +27,16 @@ namespace Utility
 		if (m_code[0].empty())
 			return;
 
-		int rightValue = getDigit(m_code[0].at(0));
-		Utility::Command operatorValue = getOperator(m_code[0].at(1));
-		int leftValue = getDigit(m_code[0].at(2));
+		int index = 0;
 
-		int result = INT_MAX;
+		int rightValue = getNumber(m_code[0], index);
+		Utility::Command operatorValue = getOperator(m_code[0], index);
+		int leftValue = getNumber(m_code[0], index);
 
+		//int rightValue = getDigit(m_code[0].at(0));
+		//Utility::Command operatorValue = getOperator(m_code[0].at(1));
+		//int leftValue = getDigit(m_code[0].at(2));
+		
 		switch (operatorValue)
 		{
 		case Utility::Command::plus:
@@ -49,6 +53,48 @@ namespace Utility
 			break;
 		}
 
+	}
+
+	int Interpreter::getNumber(std::string value, int& index)
+	{
+		std::string number = "";
+		while (value.length() > index)
+		{
+			if (std::isspace(value.at(index)))
+			{
+				skipWhitespace(index);
+				continue;
+			}
+			
+			if (std::isdigit(value.at(index)))
+				//number.append(&value.at(index++));
+				number += value.at(index++);
+			else
+				break;
+		}
+
+		return number.empty() ? 0 : std::stoi(number);
+	}
+
+	Utility::Command Interpreter::getOperator(std::string value, int& index)
+	{
+		while (value.length() > index)
+		{
+			if (std::isspace(value.at(index)))
+			{
+				skipWhitespace(index);
+				continue;
+			}
+
+			return getOperator(value.at(index++));
+		}
+
+		return Utility::Command::unknown;
+	}
+
+	void Interpreter::skipWhitespace(int& index)
+	{
+		index++;
 	}
 
 	int Interpreter::getDigit(char value)
