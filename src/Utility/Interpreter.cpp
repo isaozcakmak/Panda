@@ -43,6 +43,12 @@ namespace Utility
 				case Utility::Command::minus:
 					result -= value;
 					break;
+				case Utility::Command::mul:
+					result *= value;
+					break;
+				case Utility::Command::div:
+					result /= value;
+					break;
 				case Utility::Command::print:
 					break;
 				case Utility::Command::unknown:
@@ -143,6 +149,12 @@ namespace Utility
 			case '-':
 				return Utility::Command::minus;
 				break;
+			case '*':
+				return Utility::Command::mul;
+				break;
+			case '/':
+				return Utility::Command::div;
+				break;
 			default:
 				return Utility::Command::unknown;
 				break;
@@ -156,6 +168,8 @@ namespace Utility
 		{
 		case '+':
 		case '-':
+		case '*':
+		case '/':
 			return true;
 			break;
 		default:

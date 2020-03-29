@@ -6,8 +6,10 @@ namespace Utility
 	enum class Command
 	{
 		// Math
-		plus = 0x00,
-		minus = 0x01,
+		plus = 0x01,
+		minus,
+		mul,
+		div,
 
 
 		print = 0x06,
