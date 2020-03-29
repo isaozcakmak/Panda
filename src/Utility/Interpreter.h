@@ -25,6 +25,7 @@ namespace Utility
 
 		int getDigit(char value);
 		Utility::Command getOperator(char value);
+		bool isOperator(char value);
 
 	private:
 		std::vector<std::string> m_code;

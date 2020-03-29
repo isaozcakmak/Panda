@@ -28,30 +28,56 @@ namespace Utility
 			return;
 
 		int index = 0;
+		int result = getNumber(m_code[0], index);
 
-		int rightValue = getNumber(m_code[0], index);
-		Utility::Command operatorValue = getOperator(m_code[0], index);
-		int leftValue = getNumber(m_code[0], index);
+		while (m_code[0].size() > index && isOperator(m_code[0].at(index)))
+		{
+			Utility::Command operatorValue = getOperator(m_code[0], index);
+			int value = getNumber(m_code[0], index);
+			
+			switch (operatorValue)
+			{
+				case Utility::Command::plus:
+					result += value;
+					break;
+				case Utility::Command::minus:
+					result -= value;
+					break;
+				case Utility::Command::print:
+					break;
+				case Utility::Command::unknown:
+					break;
+				default:
+					break;
+			}
+
+		}
+
+		std::cout << result << std::endl;
+
+		//int rightValue = getNumber(m_code[0], index);
+		//Utility::Command operatorValue = getOperator(m_code[0], index);
+		//int leftValue = getNumber(m_code[0], index);
 
 		//int rightValue = getDigit(m_code[0].at(0));
 		//Utility::Command operatorValue = getOperator(m_code[0].at(1));
 		//int leftValue = getDigit(m_code[0].at(2));
 		
-		switch (operatorValue)
-		{
-		case Utility::Command::plus:
-			std::cout << rightValue + leftValue << std::endl;
-			break;
-		case Utility::Command::minus:
-			std::cout << rightValue - leftValue << std::endl;
-			break;
-		case Utility::Command::print:
-			break;
-		case Utility::Command::unknown:
-			break;
-		default:
-			break;
-		}
+		//switch (operatorValue)
+		//{
+		//	case Utility::Command::plus:
+		//		std::cout << rightValue + leftValue << std::endl;
+		//		break;
+		//	case Utility::Command::minus:
+		//		std::cout << rightValue - leftValue << std::endl;
+		//		break;
+		//	case Utility::Command::print:
+		//		break;
+		//	case Utility::Command::unknown:
+		//		break;
+		//	default:
+		//		break;
+		//}
 
 	}
 
@@ -120,6 +146,21 @@ namespace Utility
 			default:
 				return Utility::Command::unknown;
 				break;
+		}
+
+	}
+
+	bool Interpreter::isOperator(char value)
+	{
+		switch (value)
+		{
+		case '+':
+		case '-':
+			return true;
+			break;
+		default:
+			return false;
+			break;
 		}
 
 	}
