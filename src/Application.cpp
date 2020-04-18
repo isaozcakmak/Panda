@@ -2,7 +2,8 @@
 #include <string>
 #include <Utility/File.h>
 #include <Utility/Logger.h>
-#include <Utility/Interpreter.h>
+#include <Interpreter.h>
+#include <Lexer.h>
 
 int main(int argc, char* argv[])
 {
@@ -26,7 +27,7 @@ int main(int argc, char* argv[])
 		Utility::File file(filePath, false);
 		//std::string line = file.readLine();
 		auto data = file.readAllFile();
-		Utility::Interpreter interpreter(data);
+		Interpreter interpreter(data);
 		interpreter.run();
 	}
 
