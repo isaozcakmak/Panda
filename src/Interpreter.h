@@ -5,29 +5,25 @@
 #include <vector>
 #include <Utility/Command.h>
 #include <Lexer.h>
+#include <Token.h>
 
 class Interpreter
 {
 public:
-	Interpreter(const std::vector<std::string> code);
+	Interpreter(Lexer lexer);
 	~Interpreter() {}
 
-	void run();
+	int expr();
 
 private:
-	//Utility::Command getCommand();
-	//std::string getPrintString();
-
-	int getNumber(std::string value, int& index);
-	Utility::Command getOperator(std::string value, int& index);
-	void skipWhitespace(int& index);
-
-	int getDigit(char value);
-	Utility::Command getOperator(char value);
-	bool isOperator(char value);
+	void eat(Token::TokenType tokenType);
+	int factor();
+	int term();
+	void error();
 
 private:
-	std::vector<std::string> m_code;
+	Lexer m_lexer;
+	Token m_currentToken;
 };
 
 

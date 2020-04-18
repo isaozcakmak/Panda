@@ -27,8 +27,10 @@ int main(int argc, char* argv[])
 		Utility::File file(filePath, false);
 		//std::string line = file.readLine();
 		auto data = file.readAllFile();
-		Interpreter interpreter(data);
-		interpreter.run();
+		Lexer lexer(data);
+		Interpreter interpreter(lexer);
+		auto result = interpreter.expr();
+		std::cout << result << std::endl;
 	}
 
 	return 0;

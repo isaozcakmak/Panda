@@ -1,145 +1,77 @@
 #include <Interpreter.h>
 #include <iostream>
 
-Interpreter::Interpreter(const std::vector<std::string> code) :
-	m_code(code)
+Interpreter::Interpreter(Lexer lexer) :
+	m_lexer(lexer),
+	m_currentToken(m_lexer.getNextToken())
 {
 }
 
-void Interpreter::run()
+int Interpreter::expr()
 {
+	auto result = term();
 
-	if (m_code.size() == 0)
-		return;
-
-	if (m_code[0].empty())
-		return;
-
-	int index = 0;
-	int result = getNumber(m_code[0], index);
-
-	while (m_code[0].size() > index && isOperator(m_code[0].at(index)))
+	while (m_currentToken.getType() == Token::TokenType::Plus ||
+		m_currentToken.getType() == Token::TokenType::Minus)
 	{
-		Utility::Command operatorValue = getOperator(m_code[0], index);
-		int value = getNumber(m_code[0], index);
-
-		switch (operatorValue)
+		auto token = m_currentToken;
+		if (token.getType() == Token::TokenType::Plus)
 		{
-			case Utility::Command::plus:
-				result += value;
-				break;
-			case Utility::Command::minus:
-				result -= value;
-				break;
-			case Utility::Command::mul:
-				result *= value;
-				break;
-			case Utility::Command::div:
-				result /= value;
-				break;
-			case Utility::Command::print:
-				break;
-			case Utility::Command::unknown:
-				break;
-			default:
-				break;
+			eat(Token::TokenType::Plus);
+			result += term();
 		}
-
-	}
-
-	std::cout << result << std::endl;
-
-}
-
-int Interpreter::getNumber(std::string value, int& index)
-{
-	std::string number = "";
-	while (value.length() > index)
-	{
-		if (std::isspace(value.at(index)))
+		else if (token.getType() == Token::TokenType::Minus)
 		{
-			skipWhitespace(index);
-			continue;
+			eat(Token::TokenType::Minus);
+			result -= term();
 		}
-
-		if (std::isdigit(value.at(index)))
-			//number.append(&value.at(index++));
-			number += value.at(index++);
-		else
-			break;
 	}
 
-	return number.empty() ? 0 : std::stoi(number);
+	return result;
 }
 
-Utility::Command Interpreter::getOperator(std::string value, int& index)
+void Interpreter::eat(Token::TokenType tokenType)
 {
-	while (value.length() > index)
+	if (m_currentToken.getType() == tokenType)
+		m_currentToken = m_lexer.getNextToken();
+	else
+		error();
+}
+
+int Interpreter::factor()
+{
+	auto token = m_currentToken;
+	eat(Token::TokenType::Integer);
+	return token.getValue();
+}
+
+int Interpreter::term()
+{
+	auto result = factor();
+
+	while (m_currentToken.getType() == Token::TokenType::Mul || 
+			m_currentToken.getType() == Token::TokenType::Div)
 	{
-		if (std::isspace(value.at(index)))
+		auto token = m_currentToken;
+		if (token.getType() == Token::TokenType::Mul)
 		{
-			skipWhitespace(index);
-			continue;
+			eat(Token::TokenType::Mul);
+			result *= factor();
 		}
-
-		return getOperator(value.at(index++));
+		else if (token.getType() == Token::TokenType::Div)
+		{
+			eat(Token::TokenType::Div);
+			result /= factor();
+		}
 	}
 
-	return Utility::Command::unknown;
+	return result;
 }
 
-void Interpreter::skipWhitespace(int& index)
+void Interpreter::error()
 {
-	index++;
+	throw std::exception("Invalid syntax");
 }
 
-int Interpreter::getDigit(char value)
-{
-	if (std::isdigit(value))
-	{
-		return std::stoi(std::string(&value));
-	}
 
-	return 0;
-}
-
-Utility::Command Interpreter::getOperator(char value)
-{
-	switch (value)
-	{
-		case '+':
-			return Utility::Command::plus;
-			break;
-		case '-':
-			return Utility::Command::minus;
-			break;
-		case '*':
-			return Utility::Command::mul;
-			break;
-		case '/':
-			return Utility::Command::div;
-			break;
-		default:
-			return Utility::Command::unknown;
-			break;
-	}
-
-}
-
-bool Interpreter::isOperator(char value)
-{
-	switch (value)
-	{
-		case '+':
-		case '-':
-		case '*':
-		case '/':
-			return true;
-			break;
-		default:
-			return false;
-			break;
-	}
-
-}
 
