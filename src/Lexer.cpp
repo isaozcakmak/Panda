@@ -48,6 +48,18 @@ Token Lexer::getNextToken()
 			return Token(Token::TokenType::Div);
 		}
 		
+		if (m_currentChar == '(')
+		{
+			advance();
+			return Token(Token::TokenType::LeftParenthesis);
+		}
+
+		if (m_currentChar == ')')
+		{
+			advance();
+			return Token(Token::TokenType::RightParenthesis);
+		}
+
 		error();
 	}
 

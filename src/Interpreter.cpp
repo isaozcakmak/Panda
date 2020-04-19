@@ -41,8 +41,22 @@ void Interpreter::eat(Token::TokenType tokenType)
 int Interpreter::factor()
 {
 	auto token = m_currentToken;
-	eat(Token::TokenType::Integer);
-	return token.getValue();
+
+	if (token.getType() == Token::TokenType::Integer)
+	{
+		eat(Token::TokenType::Integer);
+		return token.getValue();
+	}
+	else if (token.getType() == Token::TokenType::LeftParenthesis)
+	{
+		eat(Token::TokenType::LeftParenthesis);
+		auto result = expr();
+		eat(Token::TokenType::RightParenthesis);
+		return result;
+	}
+
+	error();
+	return 0;
 }
 
 int Interpreter::term()

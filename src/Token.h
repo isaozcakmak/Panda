@@ -11,6 +11,8 @@ public:
 		Mul,
 		Div,
 		Integer,
+		LeftParenthesis,
+		RightParenthesis,
 		TokenEOF
 	};
 
