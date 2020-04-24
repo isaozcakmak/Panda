@@ -4,6 +4,7 @@
 #include <Utility/Logger.h>
 #include <Interpreter.h>
 #include <Lexer.h>
+#include <Parser.h>
 
 int main(int argc, char* argv[])
 {
@@ -28,8 +29,9 @@ int main(int argc, char* argv[])
 		//std::string line = file.readLine();
 		auto data = file.readAllFile();
 		Lexer lexer(data);
+		Parser parser(lexer);
 		Interpreter interpreter(lexer);
-		auto result = interpreter.expr();
+		auto result = interpreter.interpret();
 		std::cout << result << std::endl;
 	}
 

@@ -6,24 +6,18 @@
 #include <Utility/Command.h>
 #include <Lexer.h>
 #include <Token.h>
+#include <Parser.h>
 
 class Interpreter
 {
 public:
-	Interpreter(Lexer lexer);
+	Interpreter(Parser parser);
 	~Interpreter() {}
 
-	int expr();
+	int interpret();
 
 private:
-	void eat(Token::TokenType tokenType);
-	int factor();
-	int term();
-	void error();
-
-private:
-	Lexer m_lexer;
-	Token m_currentToken;
+	Parser m_parser;
 };
 
 
