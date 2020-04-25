@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 		auto data = file.readAllFile();
 		Lexer lexer(data);
 		Parser parser(lexer);
-		Interpreter interpreter(lexer);
+		Interpreter interpreter(parser);
 		auto result = interpreter.interpret();
 		std::cout << result << std::endl;
 	}

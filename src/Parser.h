@@ -6,6 +6,7 @@
 #include <Utility/Command.h>
 #include <Lexer.h>
 #include <Token.h>
+#include <AbstractSyntaxTree.h>
 
 class Parser
 {
@@ -13,11 +14,13 @@ public:
 	Parser(Lexer lexer);
 	~Parser() {}
 
+	AbstractSyntaxTree parse();
+
 private:
-	int expr();
+	AbstractSyntaxTree expr();
 	void eat(Token::TokenType tokenType);
-	int factor();
-	int term();
+	AbstractSyntaxTree factor();
+	AbstractSyntaxTree term();
 	void error();
 
 private:

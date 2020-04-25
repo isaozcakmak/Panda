@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include <Utility/Command.h>
-#include <Lexer.h>
 #include <Token.h>
 #include <Parser.h>
 
