@@ -89,7 +89,8 @@ AbstractSyntaxTree Parser::term()
 		}
 
 		auto factorNode = factor();
-		node = AbstractSyntaxTree(node, token, factorNode);
+		auto test = AbstractSyntaxTree(node, token, factorNode);
+		node = test;
 		
 	}
 

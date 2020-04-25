@@ -18,15 +18,22 @@ public:
 	AbstractSyntaxTree(AbstractSyntaxTree& left, Token op, AbstractSyntaxTree& right);
 	~AbstractSyntaxTree() {}
 
-	AbstractSyntaxTree& operator=(AbstractSyntaxTree other);
+	AbstractSyntaxTree& operator=(const AbstractSyntaxTree &other);
+
+	NodeType getNodeType();
+	int getTokenValue();
+	Token::TokenType getOpTokenType();
+	AbstractSyntaxTree getLeft();
+	AbstractSyntaxTree getRight();
+
 
 private:
 	NodeType m_nodeType;
 
 	Token m_token;
 
-	AbstractSyntaxTree& m_left;
-	AbstractSyntaxTree& m_right;
+	AbstractSyntaxTree* m_left;
+	AbstractSyntaxTree* m_right;
 	Token m_op;
 
 };

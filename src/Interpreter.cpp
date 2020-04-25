@@ -8,6 +8,8 @@ Interpreter::Interpreter(Parser parser) :
 
 int Interpreter::interpret()
 {
-	return 0;
+	NodeVisitor nodeVisitor;
+	auto abstractSyntaxTree = m_parser.parse();
+	return nodeVisitor.visit(abstractSyntaxTree);
 }
 

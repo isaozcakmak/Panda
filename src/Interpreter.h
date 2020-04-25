@@ -3,9 +3,8 @@
 
 #include <string>
 #include <vector>
-#include <Utility/Command.h>
-#include <Token.h>
 #include <Parser.h>
+#include <NodeVisitor.h>
 
 class Interpreter
 {
