@@ -24,15 +24,27 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		Utility::Logger::Initialize();
-		Utility::File file(filePath, false);
-		//std::string line = file.readLine();
-		auto data = file.readAllFile();
-		Lexer lexer(data);
-		Parser parser(lexer);
-		Interpreter interpreter(parser);
-		auto result = interpreter.interpret();
-		std::cout << result << std::endl;
+		try
+		{
+			Utility::Logger::Initialize();
+			Utility::File file(filePath, false);
+			//std::string line = file.readLine();
+			auto data = file.readAllFile();
+			Lexer lexer(data);
+			Parser parser(lexer);
+			Interpreter interpreter(parser);
+			auto result = interpreter.interpret();
+			std::cout << result << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+		catch (...)
+		{
+			std::cout << "Unknown Exception" << std::endl;
+		}
+
 	}
 
 	return 0;

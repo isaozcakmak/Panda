@@ -5,17 +5,17 @@ NodeVisitor::NodeVisitor()
 {
 }
 
-int NodeVisitor::visit(AbstractSyntaxTree node)
+int NodeVisitor::visit(AbstractSyntaxTree* node)
 {
-	auto nodeType = node.getNodeType();
+	auto nodeType = node->getNodeType();
 
 	switch (nodeType)
 	{
 	case AbstractSyntaxTree::NodeType::Num:
-		visitNum(node);
+		return visitNum(node);
 		break;
 	case AbstractSyntaxTree::NodeType::BinOp:
-		visitBinOp(node);
+		return visitBinOp(node);
 		break;
 	default:
 		break;
@@ -24,28 +24,28 @@ int NodeVisitor::visit(AbstractSyntaxTree node)
 	return 0;
 }
 
-int NodeVisitor::visitNum(AbstractSyntaxTree node)
+int NodeVisitor::visitNum(AbstractSyntaxTree* node)
 {
-	return node.getTokenValue();
+	return node->getTokenValue();
 }
 
-int NodeVisitor::visitBinOp(AbstractSyntaxTree node)
+int NodeVisitor::visitBinOp(AbstractSyntaxTree* node)
 {
-	auto opTokenType = node.getOpTokenType();
+	auto opTokenType = node->getOpTokenType();
 
 	switch (opTokenType)
 	{
 	case Token::TokenType::Plus:
-		return visit(node.getLeft()) + visit(node.getRight());
+		return visit(node->getLeft()) + visit(node->getRight());
 		break;
 	case Token::TokenType::Minus:
-		return visit(node.getLeft()) - visit(node.getRight());
+		return visit(node->getLeft()) - visit(node->getRight());
 		break;
 	case Token::TokenType::Mul:
-		return visit(node.getLeft()) * visit(node.getRight());
+		return visit(node->getLeft()) * visit(node->getRight());
 		break;
 	case Token::TokenType::Div:
-		return visit(node.getLeft()) / visit(node.getRight());
+		return visit(node->getLeft()) / visit(node->getRight());
 		break;
 	default:
 		break;

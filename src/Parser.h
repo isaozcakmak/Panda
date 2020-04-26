@@ -13,13 +13,13 @@ public:
 	Parser(Lexer lexer);
 	~Parser() {}
 
-	AbstractSyntaxTree parse();
+	AbstractSyntaxTree* parse();
 
 private:
-	AbstractSyntaxTree expr();
+	AbstractSyntaxTree* expr();
 	void eat(Token::TokenType tokenType);
-	AbstractSyntaxTree factor();
-	AbstractSyntaxTree term();
+	AbstractSyntaxTree* factor();
+	AbstractSyntaxTree* term();
 	void error();
 
 private:

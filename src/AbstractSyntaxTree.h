@@ -15,7 +15,7 @@ public:
 	};
 
 	AbstractSyntaxTree(Token token);
-	AbstractSyntaxTree(AbstractSyntaxTree& left, Token op, AbstractSyntaxTree& right);
+	AbstractSyntaxTree(AbstractSyntaxTree* left, Token op, AbstractSyntaxTree* right);
 	~AbstractSyntaxTree() {}
 
 	AbstractSyntaxTree& operator=(const AbstractSyntaxTree &other);
@@ -23,8 +23,8 @@ public:
 	NodeType getNodeType();
 	int getTokenValue();
 	Token::TokenType getOpTokenType();
-	AbstractSyntaxTree getLeft();
-	AbstractSyntaxTree getRight();
+	AbstractSyntaxTree* getLeft();
+	AbstractSyntaxTree* getRight();
 
 
 private:

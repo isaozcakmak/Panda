@@ -11,11 +11,11 @@ public:
 	NodeVisitor();
 	~NodeVisitor() {}
 
-	int visit(AbstractSyntaxTree node);
+	int visit(AbstractSyntaxTree* node);
 
 private:
-	int visitNum(AbstractSyntaxTree node);
-	int visitBinOp(AbstractSyntaxTree node);
+	int visitNum(AbstractSyntaxTree* node);
+	int visitBinOp(AbstractSyntaxTree* node);
 
 };
 

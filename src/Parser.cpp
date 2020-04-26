@@ -7,12 +7,12 @@ Parser::Parser(Lexer lexer) :
 {
 }
 
-AbstractSyntaxTree Parser::parse()
+AbstractSyntaxTree* Parser::parse()
 {
 	return expr();
 }
 
-AbstractSyntaxTree Parser::expr()
+AbstractSyntaxTree* Parser::expr()
 {
 	auto node = term();
 
@@ -32,7 +32,7 @@ AbstractSyntaxTree Parser::expr()
 		}
 
 		auto termNode = term();
-		node = AbstractSyntaxTree(node, token, termNode);
+		node = new AbstractSyntaxTree(node, token, termNode);
 
 	}
 
@@ -47,7 +47,7 @@ void Parser::eat(Token::TokenType tokenType)
 		error();
 }
 
-AbstractSyntaxTree Parser::factor()
+AbstractSyntaxTree* Parser::factor()
 {
 	auto token = m_currentToken;
 
@@ -55,7 +55,7 @@ AbstractSyntaxTree Parser::factor()
 	{
 		eat(Token::TokenType::Integer);
 		//return token.getValue();
-		return AbstractSyntaxTree(token);
+		return new AbstractSyntaxTree(token);
 	}
 	else if (token.getType() == Token::TokenType::LeftParenthesis)
 	{
@@ -66,10 +66,10 @@ AbstractSyntaxTree Parser::factor()
 	}
 
 	error();
-	return AbstractSyntaxTree(token);
+	return new AbstractSyntaxTree(token);
 }
 
-AbstractSyntaxTree Parser::term()
+AbstractSyntaxTree* Parser::term()
 {
 	auto node = factor();
 
@@ -89,7 +89,7 @@ AbstractSyntaxTree Parser::term()
 		}
 
 		auto factorNode = factor();
-		auto test = AbstractSyntaxTree(node, token, factorNode);
+		auto test = new AbstractSyntaxTree(node, token, factorNode);
 		node = test;
 		
 	}

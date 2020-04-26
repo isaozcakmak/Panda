@@ -10,10 +10,10 @@ AbstractSyntaxTree::AbstractSyntaxTree(Token token) :
 {
 }
 
-AbstractSyntaxTree::AbstractSyntaxTree(AbstractSyntaxTree& left, Token op, AbstractSyntaxTree& right) :
-	m_left(&left),
+AbstractSyntaxTree::AbstractSyntaxTree(AbstractSyntaxTree* left, Token op, AbstractSyntaxTree* right) :
+	m_left(left),
 	m_op(op),
-	m_right(&right),
+	m_right(right),
 	m_nodeType(NodeType::BinOp),
 	m_token(op)
 {
@@ -56,14 +56,14 @@ Token::TokenType AbstractSyntaxTree::getOpTokenType()
 	return m_op.getType();
 }
 
-AbstractSyntaxTree AbstractSyntaxTree::getLeft()
+AbstractSyntaxTree* AbstractSyntaxTree::getLeft()
 {
-	return *m_left;
+	return m_left;
 }
 
-AbstractSyntaxTree AbstractSyntaxTree::getRight()
+AbstractSyntaxTree* AbstractSyntaxTree::getRight()
 {
-	return *m_right;
+	return m_right;
 }
 
 
