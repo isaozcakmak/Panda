@@ -50,19 +50,40 @@ void Parser::eat(Token::TokenType tokenType)
 AbstractSyntaxTree* Parser::factor()
 {
 	auto token = m_currentToken;
+	auto tokenType = token.getType();
 
-	if (token.getType() == Token::TokenType::Integer)
+	switch (tokenType)
 	{
-		eat(Token::TokenType::Integer);
-		//return token.getValue();
-		return new AbstractSyntaxTree(token);
-	}
-	else if (token.getType() == Token::TokenType::LeftParenthesis)
-	{
-		eat(Token::TokenType::LeftParenthesis);
-		auto node = expr();
-		eat(Token::TokenType::RightParenthesis);
-		return node;
+	case Token::TokenType::Plus:
+		{
+			eat(Token::TokenType::Plus);
+			return new AbstractSyntaxTree(token, factor());
+			break;
+		}
+	case Token::TokenType::Minus:
+		{
+			eat(Token::TokenType::Minus);
+			return new AbstractSyntaxTree(token, factor());
+			break;
+		}
+	case Token::TokenType::Integer:
+		{
+			eat(Token::TokenType::Integer);
+			//return token.getValue();
+			return new AbstractSyntaxTree(token);
+			break;
+		}
+	case Token::TokenType::LeftParenthesis:
+		{
+			eat(Token::TokenType::LeftParenthesis);
+			auto node = expr();
+			eat(Token::TokenType::RightParenthesis);
+			return node;
+			break;
+		}
+
+	default:
+		break;
 	}
 
 	error();
@@ -77,20 +98,24 @@ AbstractSyntaxTree* Parser::term()
 			m_currentToken.getType() == Token::TokenType::Div)
 	{
 		auto token = m_currentToken;
-		if (token.getType() == Token::TokenType::Mul)
+		auto tokenType = token.getType();
+
+		switch (tokenType)
 		{
+		case Token::TokenType::Mul:
 			eat(Token::TokenType::Mul);
 			//result *= factor();
-		}
-		else if (token.getType() == Token::TokenType::Div)
-		{
+			break;
+		case Token::TokenType::Div:
 			eat(Token::TokenType::Div);
 			//result /= factor();
+			break;
+		default:
+			break;
 		}
 
 		auto factorNode = factor();
-		auto test = new AbstractSyntaxTree(node, token, factorNode);
-		node = test;
+		node = new AbstractSyntaxTree(node, token, factorNode);
 		
 	}
 

@@ -16,6 +16,7 @@ public:
 private:
 	int visitNum(AbstractSyntaxTree* node);
 	int visitBinOp(AbstractSyntaxTree* node);
+	int visitUnaryOp(AbstractSyntaxTree* node);
 
 };
 

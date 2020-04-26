@@ -6,7 +6,8 @@ AbstractSyntaxTree::AbstractSyntaxTree(Token token) :
 	m_op(token),
 	m_right(nullptr),
 	m_nodeType(NodeType::Num),
-	m_token(token)
+	m_token(token),
+	m_expr(nullptr)
 {
 }
 
@@ -15,7 +16,18 @@ AbstractSyntaxTree::AbstractSyntaxTree(AbstractSyntaxTree* left, Token op, Abstr
 	m_op(op),
 	m_right(right),
 	m_nodeType(NodeType::BinOp),
-	m_token(op)
+	m_token(op),
+	m_expr(nullptr)
+{
+}
+
+AbstractSyntaxTree::AbstractSyntaxTree(Token op, AbstractSyntaxTree* expr) :
+	m_left(nullptr),
+	m_op(op),
+	m_right(nullptr),
+	m_nodeType(NodeType::UnaryOp),
+	m_token(op),
+	m_expr(expr)
 {
 }
 
@@ -64,6 +76,11 @@ AbstractSyntaxTree* AbstractSyntaxTree::getLeft()
 AbstractSyntaxTree* AbstractSyntaxTree::getRight()
 {
 	return m_right;
+}
+
+AbstractSyntaxTree* AbstractSyntaxTree::getExpr()
+{
+	return m_expr;
 }
 
 

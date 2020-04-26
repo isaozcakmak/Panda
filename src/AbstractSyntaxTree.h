@@ -11,11 +11,13 @@ public:
 	enum class NodeType
 	{
 		Num = 0x01,
-		BinOp
+		BinOp,
+		UnaryOp
 	};
 
 	AbstractSyntaxTree(Token token);
 	AbstractSyntaxTree(AbstractSyntaxTree* left, Token op, AbstractSyntaxTree* right);
+	AbstractSyntaxTree(Token op, AbstractSyntaxTree* expr);
 	~AbstractSyntaxTree() {}
 
 	AbstractSyntaxTree& operator=(const AbstractSyntaxTree &other);
@@ -25,7 +27,7 @@ public:
 	Token::TokenType getOpTokenType();
 	AbstractSyntaxTree* getLeft();
 	AbstractSyntaxTree* getRight();
-
+	AbstractSyntaxTree* getExpr();
 
 private:
 	NodeType m_nodeType;
@@ -35,6 +37,8 @@ private:
 	AbstractSyntaxTree* m_left;
 	AbstractSyntaxTree* m_right;
 	Token m_op;
+
+	AbstractSyntaxTree* m_expr;
 
 };
 

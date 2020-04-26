@@ -17,6 +17,9 @@ int NodeVisitor::visit(AbstractSyntaxTree* node)
 	case AbstractSyntaxTree::NodeType::BinOp:
 		return visitBinOp(node);
 		break;
+	case AbstractSyntaxTree::NodeType::UnaryOp:
+		return visitUnaryOp(node);
+		break;
 	default:
 		break;
 	}
@@ -46,6 +49,25 @@ int NodeVisitor::visitBinOp(AbstractSyntaxTree* node)
 		break;
 	case Token::TokenType::Div:
 		return visit(node->getLeft()) / visit(node->getRight());
+		break;
+	default:
+		break;
+	}
+
+	return 0;
+}
+
+int NodeVisitor::visitUnaryOp(AbstractSyntaxTree* node)
+{
+	auto opTokenType = node->getOpTokenType();
+
+	switch (opTokenType)
+	{
+	case Token::TokenType::Plus:
+		return +visit(node->getExpr());
+		break;
+	case Token::TokenType::Minus:
+		return -visit(node->getExpr());
 		break;
 	default:
 		break;
