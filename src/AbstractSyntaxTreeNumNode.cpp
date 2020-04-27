@@ -2,6 +2,7 @@
 #include <iostream>
 
 AbstractSyntaxTreeNumNode::AbstractSyntaxTreeNumNode(Token token) :
+	m_nodeType(NodeType::Num),
 	m_token(token)
 {
 }
