@@ -15,6 +15,7 @@ public:
 		UnaryOp
 	};
 
+	AbstractSyntaxTree();
 	AbstractSyntaxTree(Token token);
 	AbstractSyntaxTree(AbstractSyntaxTree* left, Token op, AbstractSyntaxTree* right);
 	AbstractSyntaxTree(Token op, AbstractSyntaxTree* expr);

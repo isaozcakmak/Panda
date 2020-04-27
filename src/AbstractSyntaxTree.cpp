@@ -1,6 +1,10 @@
 #include <AbstractSyntaxTree.h>
 #include <iostream>
 
+AbstractSyntaxTree::AbstractSyntaxTree()
+{
+}
+
 AbstractSyntaxTree::AbstractSyntaxTree(Token token) :
 	m_left(nullptr),
 	m_op(token),
