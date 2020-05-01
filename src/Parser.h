@@ -6,6 +6,9 @@
 #include <Lexer.h>
 #include <Token.h>
 #include <AbstractSyntaxTree.h>
+#include <AbstractSyntaxTreeNumNode.h>
+#include <AbstractSyntaxTreeBinOpNode.h>
+#include <AbstractSyntaxTreeUnaryOpNode.h>
 
 class Parser
 {

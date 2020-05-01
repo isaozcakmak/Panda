@@ -32,7 +32,7 @@ AbstractSyntaxTree* Parser::expr()
 		}
 
 		auto termNode = term();
-		node = new AbstractSyntaxTree(node, token, termNode);
+		node = new AbstractSyntaxTreeBinOpNode(node, token, termNode);
 
 	}
 
@@ -57,20 +57,20 @@ AbstractSyntaxTree* Parser::factor()
 	case Token::TokenType::Plus:
 		{
 			eat(Token::TokenType::Plus);
-			return new AbstractSyntaxTree(token, factor());
+			return new AbstractSyntaxTreeUnaryOpNode(token, factor());
 			break;
 		}
 	case Token::TokenType::Minus:
 		{
 			eat(Token::TokenType::Minus);
-			return new AbstractSyntaxTree(token, factor());
+			return new AbstractSyntaxTreeUnaryOpNode(token, factor());
 			break;
 		}
 	case Token::TokenType::Integer:
 		{
 			eat(Token::TokenType::Integer);
 			//return token.getValue();
-			return new AbstractSyntaxTree(token);
+			return new AbstractSyntaxTreeNumNode(token);
 			break;
 		}
 	case Token::TokenType::LeftParenthesis:
@@ -87,7 +87,7 @@ AbstractSyntaxTree* Parser::factor()
 	}
 
 	error();
-	return new AbstractSyntaxTree(token);
+	return new AbstractSyntaxTreeNumNode(token);
 }
 
 AbstractSyntaxTree* Parser::term()
@@ -115,7 +115,7 @@ AbstractSyntaxTree* Parser::term()
 		}
 
 		auto factorNode = factor();
-		node = new AbstractSyntaxTree(node, token, factorNode);
+		node = new AbstractSyntaxTreeBinOpNode(node, token, factorNode);
 		
 	}
 

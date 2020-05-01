@@ -29,50 +29,76 @@ int NodeVisitor::visit(AbstractSyntaxTree* node)
 
 int NodeVisitor::visitNum(AbstractSyntaxTree* node)
 {
-	return node->getTokenValue();
+	auto nodeType = node->getNodeType();
+	if (nodeType == AbstractSyntaxTree::NodeType::Num)
+	{
+		return reinterpret_cast<AbstractSyntaxTreeNumNode*>(node)->getTokenValue();
+	}
+	
+	throw std::exception("AbstractSyntaxTree* Is Not AbstractSyntaxTreeNumNode*");
+	return 0;
 }
 
 int NodeVisitor::visitBinOp(AbstractSyntaxTree* node)
 {
-	auto opTokenType = node->getOpTokenType();
-
-	switch (opTokenType)
+	auto nodeType = node->getNodeType();
+	if (nodeType == AbstractSyntaxTree::NodeType::BinOp)
 	{
-	case Token::TokenType::Plus:
-		return visit(node->getLeft()) + visit(node->getRight());
-		break;
-	case Token::TokenType::Minus:
-		return visit(node->getLeft()) - visit(node->getRight());
-		break;
-	case Token::TokenType::Mul:
-		return visit(node->getLeft()) * visit(node->getRight());
-		break;
-	case Token::TokenType::Div:
-		return visit(node->getLeft()) / visit(node->getRight());
-		break;
-	default:
-		break;
+		auto binOpNode = reinterpret_cast<AbstractSyntaxTreeBinOpNode*>(node);
+
+		auto opTokenType = binOpNode->getOpTokenType();
+
+		switch (opTokenType)
+		{
+		case Token::TokenType::Plus:
+			return visit(binOpNode->getLeft()) + visit(binOpNode->getRight());
+			break;
+		case Token::TokenType::Minus:
+			return visit(binOpNode->getLeft()) - visit(binOpNode->getRight());
+			break;
+		case Token::TokenType::Mul:
+			return visit(binOpNode->getLeft()) * visit(binOpNode->getRight());
+			break;
+		case Token::TokenType::Div:
+			return visit(binOpNode->getLeft()) / visit(binOpNode->getRight());
+			break;
+		default:
+			break;
+		}
+
+		return 0;
+
 	}
 
+	throw std::exception("AbstractSyntaxTree* Is Not AbstractSyntaxTreeBinOpNode*");
 	return 0;
 }
 
 int NodeVisitor::visitUnaryOp(AbstractSyntaxTree* node)
 {
-	auto opTokenType = node->getOpTokenType();
-
-	switch (opTokenType)
+	auto nodeType = node->getNodeType();
+	if (nodeType == AbstractSyntaxTree::NodeType::UnaryOp)
 	{
-	case Token::TokenType::Plus:
-		return +visit(node->getExpr());
-		break;
-	case Token::TokenType::Minus:
-		return -visit(node->getExpr());
-		break;
-	default:
-		break;
+		auto unaryOpNode = reinterpret_cast<AbstractSyntaxTreeUnaryOpNode*>(node);
+
+		auto opTokenType = unaryOpNode->getOpTokenType();
+
+		switch (opTokenType)
+		{
+		case Token::TokenType::Plus:
+			return +visit(unaryOpNode->getExpr());
+			break;
+		case Token::TokenType::Minus:
+			return -visit(unaryOpNode->getExpr());
+			break;
+		default:
+			break;
+		}
+
+		return 0;
 	}
 
+	throw std::exception("AbstractSyntaxTree* Is Not AbstractSyntaxTreeUnaryOpNode*");
 	return 0;
 }
 

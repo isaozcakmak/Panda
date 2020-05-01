@@ -6,14 +6,13 @@
 #include <Token.h>
 #include <AbstractSyntaxTree.h>
 
-
 class AbstractSyntaxTreeNumNode : public AbstractSyntaxTree
 {
 public:
 	AbstractSyntaxTreeNumNode(Token token);
 	~AbstractSyntaxTreeNumNode() {}
 	
-	NodeType getNodeType();
+	virtual NodeType getNodeType();
 	int getTokenValue();
 
 private:

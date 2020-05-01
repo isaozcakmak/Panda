@@ -6,14 +6,13 @@
 #include <Token.h>
 #include <AbstractSyntaxTree.h>
 
-
 class AbstractSyntaxTreeUnaryOpNode : public AbstractSyntaxTree
 {
 public:
 	AbstractSyntaxTreeUnaryOpNode(Token op, AbstractSyntaxTree* expr);
 	~AbstractSyntaxTreeUnaryOpNode() {}
 	
-	NodeType getNodeType();
+	virtual NodeType getNodeType();
 	Token::TokenType getOpTokenType();
 	AbstractSyntaxTree* getExpr();
 

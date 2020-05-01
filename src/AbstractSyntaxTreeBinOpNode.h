@@ -12,7 +12,7 @@ public:
 	AbstractSyntaxTreeBinOpNode(AbstractSyntaxTree* left, Token op, AbstractSyntaxTree* right);
 	~AbstractSyntaxTreeBinOpNode() {}
 
-	NodeType getNodeType();
+	virtual NodeType getNodeType();
 	Token::TokenType getOpTokenType();
 	AbstractSyntaxTree* getLeft();
 	AbstractSyntaxTree* getRight();
