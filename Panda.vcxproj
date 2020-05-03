@@ -151,10 +151,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\AbstractSyntaxTree.cpp" />
+    <ClCompile Include="src\AbstractSyntaxTreeAssignNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeBinOpNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeCompoundNode.cpp" />
+    <ClCompile Include="src\AbstractSyntaxTreeNoOpNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeNumNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeUnaryOpNode.cpp" />
+    <ClCompile Include="src\AbstractSyntaxTreeVarNode.cpp" />
     <ClCompile Include="src\Interpreter.cpp" />
     <ClCompile Include="src\Lexer.cpp" />
     <ClCompile Include="src\NodeVisitor.cpp" />
@@ -168,10 +171,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AbstractSyntaxTree.h" />
+    <ClInclude Include="src\AbstractSyntaxTreeAssignNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeBinOpNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeCompoundNode.h" />
+    <ClInclude Include="src\AbstractSyntaxTreeNoOpNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeNumNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeUnaryOpNode.h" />
+    <ClInclude Include="src\AbstractSyntaxTreeVarNode.h" />
     <ClInclude Include="src\Interpreter.h" />
     <ClInclude Include="src\Lexer.h" />
     <ClInclude Include="src\NodeVisitor.h" />
