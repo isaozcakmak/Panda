@@ -13,6 +13,12 @@ public:
 		Integer,
 		LeftParenthesis,
 		RightParenthesis,
+		ID,
+		Assign,
+		Begin,
+		End,
+		Semi,
+		Dot,
 		TokenEOF
 	};
 
