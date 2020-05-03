@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="src\AbstractSyntaxTree.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeBinOpNode.cpp" />
+    <ClCompile Include="src\AbstractSyntaxTreeCompoundNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeNumNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeUnaryOpNode.cpp" />
     <ClCompile Include="src\Interpreter.cpp" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="src\AbstractSyntaxTree.h" />
     <ClInclude Include="src\AbstractSyntaxTreeBinOpNode.h" />
+    <ClInclude Include="src\AbstractSyntaxTreeCompoundNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeNumNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeUnaryOpNode.h" />
     <ClInclude Include="src\Interpreter.h" />

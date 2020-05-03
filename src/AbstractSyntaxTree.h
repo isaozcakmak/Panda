@@ -12,7 +12,8 @@ public:
 	{
 		Num = 0x01,
 		BinOp,
-		UnaryOp
+		UnaryOp,
+		Compound
 	};
 
 	AbstractSyntaxTree();

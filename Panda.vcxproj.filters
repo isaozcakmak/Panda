@@ -57,6 +57,9 @@
     <ClCompile Include="src\AbstractSyntaxTreeUnaryOpNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\AbstractSyntaxTreeCompoundNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utility\File.h">
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\AbstractSyntaxTreeUnaryOpNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AbstractSyntaxTreeCompoundNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
