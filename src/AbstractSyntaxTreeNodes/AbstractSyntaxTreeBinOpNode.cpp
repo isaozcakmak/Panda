@@ -1,4 +1,4 @@
-#include <AbstractSyntaxTreeBinOpNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeBinOpNode.h>
 #include <iostream>
 
 AbstractSyntaxTreeBinOpNode::AbstractSyntaxTreeBinOpNode(AbstractSyntaxTree* left, Token op, AbstractSyntaxTree* right) :

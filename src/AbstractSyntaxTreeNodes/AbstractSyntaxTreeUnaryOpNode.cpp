@@ -1,4 +1,4 @@
-#include <AbstractSyntaxTreeUnaryOpNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeUnaryOpNode.h>
 #include <iostream>
 
 AbstractSyntaxTreeUnaryOpNode::AbstractSyntaxTreeUnaryOpNode(Token op, AbstractSyntaxTree* expr) :

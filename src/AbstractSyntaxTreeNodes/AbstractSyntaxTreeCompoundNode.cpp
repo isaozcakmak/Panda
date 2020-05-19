@@ -1,4 +1,4 @@
-#include <AbstractSyntaxTreeCompoundNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeCompoundNode.h>
 #include <iostream>
 
 AbstractSyntaxTreeCompoundNode::AbstractSyntaxTreeCompoundNode() :

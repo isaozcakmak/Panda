@@ -1,4 +1,4 @@
-#include <AbstractSyntaxTreeAssignNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeAssignNode.h>
 #include <iostream>
 
 AbstractSyntaxTreeAssignNode::AbstractSyntaxTreeAssignNode(AbstractSyntaxTree* left, Token op, AbstractSyntaxTree* right) :

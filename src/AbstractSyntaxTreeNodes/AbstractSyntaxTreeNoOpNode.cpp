@@ -1,4 +1,4 @@
-#include <AbstractSyntaxTreeNoOpNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeNoOpNode.h>
 #include <iostream>
 
 AbstractSyntaxTreeNoOpNode::AbstractSyntaxTreeNoOpNode() :

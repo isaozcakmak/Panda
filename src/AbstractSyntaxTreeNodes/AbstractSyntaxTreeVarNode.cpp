@@ -1,4 +1,4 @@
-#include <AbstractSyntaxTreeVarNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeVarNode.h>
 #include <iostream>
 
 AbstractSyntaxTreeVarNode::AbstractSyntaxTreeVarNode(Token token) :

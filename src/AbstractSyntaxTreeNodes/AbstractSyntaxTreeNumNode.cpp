@@ -1,4 +1,4 @@
-#include <AbstractSyntaxTreeNumNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeNumNode.h>
 #include <iostream>
 
 AbstractSyntaxTreeNumNode::AbstractSyntaxTreeNumNode(Token token) :
