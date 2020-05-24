@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 namespace Utility
 {
@@ -13,7 +14,8 @@ namespace Utility
 		File(const std::string& filePath, bool create = false);
 		~File();
 		std::string readLine();
-		std::vector<std::string> readAllFile();
+		std::vector<std::string> readAllLines();
+		std::string readAllText();
 		void writeLine(const std::string& data);
 
 	public:
