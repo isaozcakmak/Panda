@@ -1,12 +1,11 @@
 #include "Lexer.h"
 
-Lexer::Lexer(const std::vector<std::string> code) :
+Lexer::Lexer(const std::string code) :
 	m_code(code),
-	m_index(0),
 	m_position(0)
 {
-	if (m_code.size() > 0 && m_code[m_index].size() > 0)
-		m_currentChar = m_code[m_index][m_position];
+	if (m_code.size() > 0)
+		m_currentChar = m_code[m_position];
 	else
 		m_currentChar = NULL;
 }
@@ -70,10 +69,10 @@ void Lexer::advance()
 {
 	m_position++;
 
-	if (m_position > m_code[m_index].size() - 1)
+	if (m_position > m_code.size() - 1)
 		m_currentChar = NULL;
 	else
-		m_currentChar = m_code[m_index][m_position];
+		m_currentChar = m_code[m_position];
 
 }
 

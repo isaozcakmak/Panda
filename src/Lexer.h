@@ -8,7 +8,7 @@
 class Lexer
 {
 public:
-	Lexer(const std::vector<std::string> code);
+	Lexer(const std::string code);
 	~Lexer() {}
 
 	Token getNextToken();
@@ -20,8 +20,7 @@ private:
 	void error();
 
 private:
-	std::vector<std::string> m_code;
-	int m_index;
+	std::string m_code;
 	int m_position;
 	char m_currentChar;
 };
