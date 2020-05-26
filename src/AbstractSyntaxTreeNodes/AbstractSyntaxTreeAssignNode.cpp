@@ -2,7 +2,7 @@
 #include <iostream>
 
 AbstractSyntaxTreeAssignNode::AbstractSyntaxTreeAssignNode(AbstractSyntaxTree* left, Token op, AbstractSyntaxTree* right) :
-	m_nodeType(NodeType::BinOp),
+	m_nodeType(NodeType::Assign),
 	m_left(left),
 	m_op(op),
 	m_right(right)
@@ -27,6 +27,11 @@ AbstractSyntaxTree* AbstractSyntaxTreeAssignNode::getLeft()
 AbstractSyntaxTree* AbstractSyntaxTreeAssignNode::getRight()
 {
 	return m_right;
+}
+
+std::string AbstractSyntaxTreeAssignNode::getTokenString()
+{
+	return m_op.getString();
 }
 
 

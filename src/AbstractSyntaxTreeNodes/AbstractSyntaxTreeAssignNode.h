@@ -16,6 +16,7 @@ public:
 	Token::TokenType getOpTokenType();
 	AbstractSyntaxTree* getLeft();
 	AbstractSyntaxTree* getRight();
+	std::string getTokenString();
 
 private:
 	NodeType m_nodeType;
