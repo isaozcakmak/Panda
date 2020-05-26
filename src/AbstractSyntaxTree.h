@@ -13,7 +13,10 @@ public:
 		Num = 0x01,
 		BinOp,
 		UnaryOp,
-		Compound
+		Compound,
+		Assign,
+		Var,
+		NoOp
 	};
 
 	AbstractSyntaxTree();
