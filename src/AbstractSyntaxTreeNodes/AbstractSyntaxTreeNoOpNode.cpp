@@ -2,7 +2,7 @@
 #include <iostream>
 
 AbstractSyntaxTreeNoOpNode::AbstractSyntaxTreeNoOpNode() :
-	m_nodeType(NodeType::Compound)
+	m_nodeType(NodeType::NoOp)
 {
 }
 
