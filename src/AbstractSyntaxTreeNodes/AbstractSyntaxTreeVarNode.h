@@ -14,6 +14,7 @@ public:
 	
 	virtual NodeType getNodeType();
 	int getTokenValue();
+	std::string getTokenString();
 
 private:
 	NodeType m_nodeType;
