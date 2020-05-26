@@ -13,9 +13,13 @@ public:
 	~AbstractSyntaxTreeCompoundNode() {}
 	
 	virtual NodeType getNodeType();
+	void addChild(AbstractSyntaxTree* child);
+	std::vector<AbstractSyntaxTree*> getChildren();
 
 private:
 	NodeType m_nodeType;
+
+	std::vector<AbstractSyntaxTree*> m_children;
 
 };
 
