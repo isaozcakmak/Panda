@@ -32,8 +32,7 @@ int main(int argc, char* argv[])
 			Lexer lexer(data);
 			Parser parser(lexer);
 			Interpreter interpreter(parser);
-			auto result = interpreter.interpret();
-			std::cout << result << std::endl;
+			interpreter.interpret();
 		}
 		catch (const std::exception& e)
 		{
