@@ -8,6 +8,9 @@ Lexer::Lexer(const std::string code) :
 		m_currentChar = m_code[m_position];
 	else
 		m_currentChar = NULL;
+
+	m_reservedKeywords["BEGIN"] = Token(Token::TokenType::Begin);
+	m_reservedKeywords["END"] = Token(Token::TokenType::End);
 }
 
 Token Lexer::getNextToken()
@@ -20,8 +23,18 @@ Token Lexer::getNextToken()
 			continue;
 		}
 
+		if (std::isalpha(m_currentChar))
+			return id();
+
 		if (std::isdigit(m_currentChar))
 			return Token(Token::TokenType::Integer, integer());
+
+		if (m_currentChar == ':' && peek() == '=')
+		{
+			advance();
+			advance();
+			return Token(Token::TokenType::Assign);
+		}
 
 		if (m_currentChar == '+')
 		{
@@ -59,6 +72,18 @@ Token Lexer::getNextToken()
 			return Token(Token::TokenType::RightParenthesis);
 		}
 
+		if (m_currentChar == ';')
+		{
+			advance();
+			return Token(Token::TokenType::Semi);
+		}
+
+		if (m_currentChar == '.')
+		{
+			advance();
+			return Token(Token::TokenType::Dot);
+		}
+
 		error();
 	}
 
@@ -74,6 +99,16 @@ void Lexer::advance()
 	else
 		m_currentChar = m_code[m_position];
 
+}
+
+char Lexer::peek()
+{
+	int peekPosition = m_position + 1;
+
+	if (peekPosition > m_code.size() - 1)
+		return NULL;
+	else
+		return m_code[peekPosition];
 }
 
 void Lexer::skipWhiteSpace()
@@ -94,6 +129,22 @@ int Lexer::integer()
 	}
 
 	return number.empty() ? 0 : std::stoi(number);
+}
+
+Token Lexer::id()
+{
+	std::string result = "";
+
+	while (m_currentChar != NULL && std::isalnum(m_currentChar))
+	{
+		result += m_currentChar;
+		advance();
+	}
+
+	if (m_reservedKeywords.contains(result))
+		return m_reservedKeywords[result];
+	else
+		return Token(Token::TokenType::ID, result);
 }
 
 void Lexer::error()
