@@ -9,6 +9,10 @@
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeNumNode.h>
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeBinOpNode.h>
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeUnaryOpNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeAssignNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeCompoundNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeVarNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeNoOpNode.h>
 
 class Parser
 {
@@ -23,6 +27,14 @@ private:
 	void eat(Token::TokenType tokenType);
 	AbstractSyntaxTree* factor();
 	AbstractSyntaxTree* term();
+	AbstractSyntaxTree* program();
+	AbstractSyntaxTree* compoundStatement();
+	std::vector< AbstractSyntaxTree*> statementList();
+	AbstractSyntaxTree* statement();
+	AbstractSyntaxTree* assignmentStatement();
+	AbstractSyntaxTree* variable();
+	AbstractSyntaxTree* empty();
+
 	void error();
 
 private:

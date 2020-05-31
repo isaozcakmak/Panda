@@ -9,7 +9,7 @@ Parser::Parser(Lexer lexer) :
 
 AbstractSyntaxTree* Parser::parse()
 {
-	return expr();
+	return program();
 }
 
 AbstractSyntaxTree* Parser::expr()
@@ -83,7 +83,11 @@ AbstractSyntaxTree* Parser::factor()
 		}
 
 	default:
-		break;
+		{
+			auto node = variable();
+			return node;
+			break;
+		}
 	}
 
 	error();
@@ -120,6 +124,91 @@ AbstractSyntaxTree* Parser::term()
 	}
 
 	return node;
+}
+
+AbstractSyntaxTree* Parser::program()
+{
+	auto node = compoundStatement();
+	eat(Token::TokenType::Dot);
+
+	return node;
+}
+
+AbstractSyntaxTree* Parser::compoundStatement()
+{
+	eat(Token::TokenType::Begin);
+
+	auto nodes = statementList();
+
+	eat(Token::TokenType::End);
+
+	auto root = new AbstractSyntaxTreeCompoundNode();
+
+	for (size_t i = 0; i < nodes.size(); i++)
+	{
+		root->addChild(nodes[i]);
+	}
+
+	return root;
+}
+
+std::vector<AbstractSyntaxTree*> Parser::statementList()
+{
+	std::vector< AbstractSyntaxTree*> results;
+
+	auto node = statement();
+
+	results.push_back(node);
+
+	while (m_currentToken.getType() == Token::TokenType::Semi)
+	{
+		eat(Token::TokenType::Semi);
+		results.push_back(statement());
+	}
+
+	if (m_currentToken.getType() == Token::TokenType::ID)
+		error();
+
+	return results;
+}
+
+AbstractSyntaxTree* Parser::statement()
+{
+	AbstractSyntaxTree* node = nullptr;
+
+	if (m_currentToken.getType() == Token::TokenType::Begin)
+		node = compoundStatement();
+	else if (m_currentToken.getType() == Token::TokenType::ID)
+		node = assignmentStatement();
+	else
+		node = empty();
+
+	return node;
+}
+
+AbstractSyntaxTree* Parser::assignmentStatement()
+{
+	auto left = variable();
+	auto token = m_currentToken;
+
+	eat(Token::TokenType::Assign);
+
+	auto right = expr();
+
+	return new AbstractSyntaxTreeAssignNode(left, token, right);
+}
+
+AbstractSyntaxTree* Parser::variable()
+{
+	auto node = new AbstractSyntaxTreeVarNode(m_currentToken);
+	eat(Token::TokenType::ID);
+
+	return node;
+}
+
+AbstractSyntaxTree* Parser::empty()
+{
+	return new AbstractSyntaxTreeNoOpNode();
 }
 
 void Parser::error()
