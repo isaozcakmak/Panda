@@ -10,6 +10,9 @@ int Interpreter::interpret()
 {
 	NodeVisitor nodeVisitor;
 	auto abstractSyntaxTree = m_parser.parse();
-	return nodeVisitor.visit(abstractSyntaxTree);
+	auto result = nodeVisitor.visit(abstractSyntaxTree);
+	nodeVisitor.printVariables();
+
+	return result;
 }
 
