@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 #include <AbstractSyntaxTree.h>
-#include <AbstractSyntaxTreeNumNode.h>
-#include <AbstractSyntaxTreeBinOpNode.h>
-#include <AbstractSyntaxTreeUnaryOpNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeNumNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeBinOpNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeUnaryOpNode.h>
 
 class NodeVisitor
 {
