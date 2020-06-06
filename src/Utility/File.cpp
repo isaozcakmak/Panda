@@ -67,7 +67,7 @@ namespace Utility
 		}
 	}
 
-	std::vector<std::string> File::readAllFile()
+	std::vector<std::string> File::readAllLines()
 	{
 		std::vector<std::string> data;
 
@@ -78,6 +78,20 @@ namespace Utility
 			{
 				data.push_back(line);
 			}
+		}
+
+		return data;
+	}
+
+	std::string File::readAllText()
+	{
+		std::string data = "";
+
+		if (m_file.is_open())
+		{
+			std::stringstream stringStream;
+			stringStream << m_file.rdbuf();
+			data = stringStream.str();
 		}
 
 		return data;
