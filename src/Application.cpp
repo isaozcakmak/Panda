@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 	}
 
 	#ifdef PANDA_DEBUG
-		filePath = ".\\bin\\x64\\Debug\\test.pnd";
+		filePath = ".\\test\\test.pnd";
 	#endif // PANDA_DEBUG
 
 	if ( filePath.empty() )
