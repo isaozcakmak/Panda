@@ -48,13 +48,13 @@
     <ClCompile Include="src\NodeVisitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\AbstractSyntaxTreeNumNode.cpp">
+    <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeBinOpNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\AbstractSyntaxTreeBinOpNode.cpp">
+    <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeNumNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\AbstractSyntaxTreeUnaryOpNode.cpp">
+    <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeUnaryOpNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -95,13 +95,13 @@
     <ClInclude Include="src\NodeVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\AbstractSyntaxTreeNumNode.h">
+    <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeUnaryOpNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\AbstractSyntaxTreeBinOpNode.h">
+    <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeBinOpNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\AbstractSyntaxTreeUnaryOpNode.h">
+    <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeNumNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
