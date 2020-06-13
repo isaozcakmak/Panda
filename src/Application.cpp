@@ -2,6 +2,7 @@
 #include <string>
 #include <Utility/File.h>
 #include <Utility/Logger.h>
+#include <Utility/HelperMethods.h>
 #include <Interpreter.h>
 #include <Lexer.h>
 #include <Parser.h>
@@ -27,6 +28,7 @@ int main(int argc, char* argv[])
 		try
 		{
 			Utility::Logger::Initialize();
+			Utility::HelperMethods::Initialize();
 			Utility::File file(filePath, false);
 			auto data = file.readAllText();
 			Lexer lexer(data);

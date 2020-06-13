@@ -9,8 +9,8 @@ Lexer::Lexer(const std::string code) :
 	else
 		m_currentChar = NULL;
 
-	m_reservedKeywords["BEGIN"] = Token(Token::TokenType::Begin);
-	m_reservedKeywords["END"] = Token(Token::TokenType::End);
+	m_reservedKeywords["begin"] = Token(Token::TokenType::Begin);
+	m_reservedKeywords["end"] = Token(Token::TokenType::End);
 }
 
 Token Lexer::getNextToken()
@@ -140,6 +140,8 @@ Token Lexer::id()
 		result += m_currentChar;
 		advance();
 	}
+
+	Utility::HelperMethods::Instance().toLower(result);
 
 	if (m_reservedKeywords.contains(result))
 		return m_reservedKeywords[result];

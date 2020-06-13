@@ -13,6 +13,7 @@
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeCompoundNode.h>
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeVarNode.h>
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeNoOpNode.h>
+#include <Utility/HelperMethods.h>
 
 class NodeVisitor
 {

@@ -5,6 +5,7 @@
 #include <vector>
 #include <unordered_map>
 #include <Token.h>
+#include <Utility/HelperMethods.h>
 
 class Lexer
 {

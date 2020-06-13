@@ -159,6 +159,8 @@ void NodeVisitor::visitAssign(AbstractSyntaxTree* node)
 
 		auto variableName = leftNode->getTokenString();
 
+		Utility::HelperMethods::Instance().toLower(variableName);
+
 		m_variables[variableName] = visit(assignNode->getRight());
 		return;
 	}
@@ -174,6 +176,8 @@ int NodeVisitor::visitVar(AbstractSyntaxTree* node)
 	{
 		auto varNode = reinterpret_cast<AbstractSyntaxTreeVarNode*>(node);
 		auto variableName = varNode->getTokenString();
+
+		Utility::HelperMethods::Instance().toLower(variableName);
 
 		if (m_variables.contains(variableName))
 		{

@@ -167,6 +167,7 @@
     <ClCompile Include="src\Utility\Date.cpp" />
     <ClCompile Include="src\Utility\File.cpp" />
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\Utility\HelperMethods.cpp" />
     <ClCompile Include="src\Utility\Logger.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +188,7 @@
     <ClInclude Include="src\Utility\Clock.h" />
     <ClInclude Include="src\Utility\Date.h" />
     <ClInclude Include="src\Utility\File.h" />
+    <ClInclude Include="src\Utility\HelperMethods.h" />
     <ClInclude Include="src\Utility\Logger.h" />
     <ClInclude Include="src\Utility\Platform.h" />
   </ItemGroup>
