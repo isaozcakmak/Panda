@@ -14,9 +14,9 @@ int main(int argc, char* argv[])
 		filePath = argv[1];
 	}
 
-	#ifdef PANDA_DEBUG
-		filePath = ".\\test\\test.pnd";
-	#endif // PANDA_DEBUG
+	#ifdef SPI_DEBUG
+		filePath = ".\\test\\test.txt";
+	#endif // SPI_DEBUG
 
 	if ( filePath.empty() )
 	{
