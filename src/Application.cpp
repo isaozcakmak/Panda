@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 		filePath = argv[1];
 	}
 
-	#ifdef PANDA_DEBUG
+	#ifdef SPI_DEBUG
 		filePath = ".\\test\\test.pnd";
 	#endif // PANDA_DEBUG
 
