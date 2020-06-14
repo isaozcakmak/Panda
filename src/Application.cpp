@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	}
 
 	#ifdef SPI_DEBUG
-		filePath = ".\\test\\test.pnd";
+		filePath = ".\\test\\test.pas";
 	#endif // PANDA_DEBUG
 
 	if ( filePath.empty() )
