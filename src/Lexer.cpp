@@ -124,6 +124,16 @@ void Lexer::skipWhiteSpace()
 	}
 }
 
+void Lexer::skipComment()
+{
+	while (m_currentChar != '}')
+	{
+		advance();
+	}
+
+	advance();
+}
+
 int Lexer::integer()
 {
 	std::string number = "";

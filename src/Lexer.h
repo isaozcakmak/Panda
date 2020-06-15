@@ -19,6 +19,7 @@ private:
 	void advance();
 	char peek();
 	void skipWhiteSpace();
+	void skipComment();
 	int integer();
 	Token id();
 	void error();
