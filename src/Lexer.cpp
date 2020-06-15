@@ -11,6 +11,11 @@ Lexer::Lexer(const std::string code) :
 
 	m_reservedKeywords["begin"] = Token(Token::TokenType::Begin);
 	m_reservedKeywords["end"] = Token(Token::TokenType::End);
+	m_reservedKeywords["program"] = Token(Token::TokenType::Program);
+	m_reservedKeywords["var"] = Token(Token::TokenType::Var);
+	m_reservedKeywords["div"] = Token(Token::TokenType::IntegerDiv);
+	m_reservedKeywords["integer"] = Token(Token::TokenType::Integer);
+	m_reservedKeywords["real"] = Token(Token::TokenType::Real);
 }
 
 Token Lexer::getNextToken()
