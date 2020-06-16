@@ -16,7 +16,11 @@ public:
 		Compound,
 		Assign,
 		Var,
-		NoOp
+		NoOp,
+		Program,
+		Block,
+		VarDecl,
+		Type
 	};
 
 	AbstractSyntaxTree();
