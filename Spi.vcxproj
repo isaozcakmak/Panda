@@ -161,6 +161,7 @@
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeProgramNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeTypeNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeUnaryOpNode.cpp" />
+    <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeVarDeclarationNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeVarNode.cpp" />
     <ClCompile Include="src\Interpreter.cpp" />
     <ClCompile Include="src\Lexer.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeProgramNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeTypeNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeUnaryOpNode.h" />
+    <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeVarDeclarationNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeVarNode.h" />
     <ClInclude Include="src\Interpreter.h" />
     <ClInclude Include="src\Lexer.h" />

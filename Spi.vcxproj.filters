@@ -81,6 +81,9 @@
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeTypeNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeVarDeclarationNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utility\File.h">
@@ -150,6 +153,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeTypeNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeVarDeclarationNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
