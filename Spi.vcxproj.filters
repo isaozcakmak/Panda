@@ -72,6 +72,9 @@
     <ClCompile Include="src\Utility\HelperMethods.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeProgramNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utility\File.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Utility\HelperMethods.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeProgramNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
