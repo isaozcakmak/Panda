@@ -28,6 +28,13 @@ Token Lexer::getNextToken()
 			continue;
 		}
 
+		if (m_currentChar == '{')
+		{
+			advance();
+			skipComment();
+			continue;
+		}
+
 		if (std::isalpha(m_currentChar))
 			return id();
 
@@ -62,7 +69,7 @@ Token Lexer::getNextToken()
 		if (m_currentChar == '/')
 		{
 			advance();
-			return Token(Token::TokenType::Div);
+			return Token(Token::TokenType::FloatDiv);
 		}
 		
 		if (m_currentChar == '(')
@@ -87,6 +94,18 @@ Token Lexer::getNextToken()
 		{
 			advance();
 			return Token(Token::TokenType::Dot);
+		}
+
+		if (m_currentChar == ':')
+		{
+			advance();
+			return Token(Token::TokenType::Colon);
+		}
+
+		if (m_currentChar == ',')
+		{
+			advance();
+			return Token(Token::TokenType::Comma);
 		}
 
 		error();
