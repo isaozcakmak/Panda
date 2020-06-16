@@ -20,7 +20,7 @@ private:
 	char peek();
 	void skipWhiteSpace();
 	void skipComment();
-	int integer();
+	Token number();
 	Token id();
 	void error();
 

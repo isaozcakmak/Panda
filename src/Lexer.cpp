@@ -32,7 +32,7 @@ Token Lexer::getNextToken()
 			return id();
 
 		if (std::isdigit(m_currentChar))
-			return Token(Token::TokenType::Integer, integer());
+			return number();
 
 		if (m_currentChar == ':' && peek() == '=')
 		{
@@ -134,7 +134,7 @@ void Lexer::skipComment()
 	advance();
 }
 
-int Lexer::integer()
+Token Lexer::number()
 {
 	std::string number = "";
 	while (m_currentChar != NULL && std::isdigit(m_currentChar))
@@ -143,7 +143,23 @@ int Lexer::integer()
 		advance();
 	}
 
-	return number.empty() ? 0 : std::stoi(number);
+	if (m_currentChar == '.')
+	{
+		number += m_currentChar;
+		advance();
+
+		while (m_currentChar != NULL && std::isdigit(m_currentChar))
+		{
+			number += m_currentChar;
+			advance();
+		}
+
+		double doubleNumber = number.empty() ? 0.0 : std::stod(number);
+		return Token(Token::TokenType::RealConst, doubleNumber);
+	}
+
+	int integerNumber = number.empty() ? 0 : std::stoi(number);
+	return Token(Token::TokenType::IntegerConst, integerNumber);
 }
 
 Token Lexer::id()
