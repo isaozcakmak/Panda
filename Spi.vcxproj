@@ -159,6 +159,7 @@
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeNoOpNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeNumNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeProgramNode.cpp" />
+    <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeTypeNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeUnaryOpNode.cpp" />
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeVarNode.cpp" />
     <ClCompile Include="src\Interpreter.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeNoOpNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeNumNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeProgramNode.h" />
+    <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeTypeNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeUnaryOpNode.h" />
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeVarNode.h" />
     <ClInclude Include="src\Interpreter.h" />

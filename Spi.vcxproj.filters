@@ -78,6 +78,9 @@
     <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeBlockNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeTypeNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utility\File.h">
@@ -144,6 +147,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeBlockNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AbstractSyntaxTreeNodes\AbstractSyntaxTreeTypeNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
