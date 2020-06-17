@@ -128,10 +128,19 @@ AbstractSyntaxTree* Parser::term()
 
 AbstractSyntaxTree* Parser::program()
 {
-	auto node = compoundStatement();
+	eat(Token::TokenType::Program);
+
+	auto varNode = variable();
+	std::string programName = reinterpret_cast<AbstractSyntaxTreeVarNode*>(varNode)->getTokenString();
+
+	eat(Token::TokenType::Semi);
+
+	auto blockNode = block();
+	auto programNode = new AbstractSyntaxTreeProgramNode(programName, blockNode);
+	
 	eat(Token::TokenType::Dot);
 
-	return node;
+	return programNode;
 }
 
 AbstractSyntaxTree* Parser::block()
