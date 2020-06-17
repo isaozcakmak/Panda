@@ -13,6 +13,10 @@
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeCompoundNode.h>
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeVarNode.h>
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeNoOpNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeProgramNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeBlockNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeVarDeclarationNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeTypeNode.h>
 
 class Parser
 {
@@ -28,6 +32,7 @@ private:
 	AbstractSyntaxTree* factor();
 	AbstractSyntaxTree* term();
 	AbstractSyntaxTree* program();
+	AbstractSyntaxTreeTypeNode* typeSpec();
 	AbstractSyntaxTree* compoundStatement();
 	std::vector< AbstractSyntaxTree*> statementList();
 	AbstractSyntaxTree* statement();

@@ -134,6 +134,18 @@ AbstractSyntaxTree* Parser::program()
 	return node;
 }
 
+AbstractSyntaxTreeTypeNode* Parser::typeSpec()
+{
+	auto token = m_currentToken;
+
+	if (m_currentToken.getType() == Token::TokenType::Integer)
+		eat(Token::TokenType::Integer);
+	else
+		eat(Token::TokenType::Real);
+
+	return new AbstractSyntaxTreeTypeNode(token);
+}
+
 AbstractSyntaxTree* Parser::compoundStatement()
 {
 	eat(Token::TokenType::Begin);
