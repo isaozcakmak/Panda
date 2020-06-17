@@ -134,6 +134,34 @@ AbstractSyntaxTree* Parser::program()
 	return node;
 }
 
+std::vector<AbstractSyntaxTreeVarDeclarationNode*> Parser::variableDeclaration()
+{
+	std::vector<AbstractSyntaxTreeVarDeclarationNode*> results;
+
+	std::vector<AbstractSyntaxTreeVarNode*> varNodes;
+	varNodes.push_back(new AbstractSyntaxTreeVarNode(m_currentToken));
+
+	eat(Token::TokenType::ID);
+
+	while (m_currentToken.getType() == Token::TokenType::Comma)
+	{
+		eat(Token::TokenType::Comma);
+		varNodes.push_back(new AbstractSyntaxTreeVarNode(m_currentToken));
+		eat(Token::TokenType::ID);
+	}
+
+	eat(Token::TokenType::Colon);
+
+	auto typeNode = typeSpec();
+
+	for (auto item : varNodes)
+	{
+		results.push_back(new AbstractSyntaxTreeVarDeclarationNode(item, typeNode));
+	}
+
+	return results;
+}
+
 AbstractSyntaxTreeTypeNode* Parser::typeSpec()
 {
 	auto token = m_currentToken;
