@@ -134,9 +134,17 @@ AbstractSyntaxTree* Parser::program()
 	return node;
 }
 
-std::vector<AbstractSyntaxTreeVarDeclarationNode*> Parser::declarations()
+AbstractSyntaxTree* Parser::block()
 {
-	std::vector<AbstractSyntaxTreeVarDeclarationNode*> declarations;
+	auto declarationNodes = declarations();
+	auto compoundStatementNode = compoundStatement();
+
+	return new AbstractSyntaxTreeBlockNode(declarationNodes, compoundStatementNode);
+}
+
+std::vector<AbstractSyntaxTree*> Parser::declarations()
+{
+	std::vector<AbstractSyntaxTree*> declarations;
 
 	if (m_currentToken.getType() == Token::TokenType::Var)
 	{
@@ -153,9 +161,9 @@ std::vector<AbstractSyntaxTreeVarDeclarationNode*> Parser::declarations()
 	return declarations;
 }
 
-std::vector<AbstractSyntaxTreeVarDeclarationNode*> Parser::variableDeclaration()
+std::vector<AbstractSyntaxTree*> Parser::variableDeclaration()
 {
-	std::vector<AbstractSyntaxTreeVarDeclarationNode*> results;
+	std::vector<AbstractSyntaxTree*> results;
 
 	std::vector<AbstractSyntaxTreeVarNode*> varNodes;
 	varNodes.push_back(new AbstractSyntaxTreeVarNode(m_currentToken));

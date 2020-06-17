@@ -32,8 +32,9 @@ private:
 	AbstractSyntaxTree* factor();
 	AbstractSyntaxTree* term();
 	AbstractSyntaxTree* program();
-	std::vector<AbstractSyntaxTreeVarDeclarationNode*> declarations();
-	std::vector<AbstractSyntaxTreeVarDeclarationNode*> variableDeclaration();
+	AbstractSyntaxTree* block();
+	std::vector<AbstractSyntaxTree*> declarations();
+	std::vector<AbstractSyntaxTree*> variableDeclaration();
 	AbstractSyntaxTreeTypeNode* typeSpec();
 	AbstractSyntaxTree* compoundStatement();
 	std::vector< AbstractSyntaxTree*> statementList();
