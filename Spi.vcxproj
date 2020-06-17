@@ -193,7 +193,6 @@
     <ClInclude Include="src\NodeVisitor.h" />
     <ClInclude Include="src\Parser.h" />
     <ClInclude Include="src\Token.h" />
-    <ClInclude Include="src\Utility\Command.h" />
     <ClInclude Include="src\Utility\Clock.h" />
     <ClInclude Include="src\Utility\Date.h" />
     <ClInclude Include="src\Utility\File.h" />
