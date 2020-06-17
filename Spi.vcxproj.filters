@@ -74,9 +74,6 @@
     <ClInclude Include="src\Utility\Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Utility\Command.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Lexer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
