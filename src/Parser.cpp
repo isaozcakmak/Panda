@@ -134,6 +134,25 @@ AbstractSyntaxTree* Parser::program()
 	return node;
 }
 
+std::vector<AbstractSyntaxTreeVarDeclarationNode*> Parser::declarations()
+{
+	std::vector<AbstractSyntaxTreeVarDeclarationNode*> declarations;
+
+	if (m_currentToken.getType() == Token::TokenType::Var)
+	{
+		eat(Token::TokenType::Var);
+
+		while (m_currentToken.getType() == Token::TokenType::ID)
+		{
+			auto varDeclarations = variableDeclaration();
+			declarations.insert(declarations.begin(), varDeclarations.begin(), varDeclarations.end());
+			eat(Token::TokenType::Semi);
+		}
+	}
+
+	return declarations;
+}
+
 std::vector<AbstractSyntaxTreeVarDeclarationNode*> Parser::variableDeclaration()
 {
 	std::vector<AbstractSyntaxTreeVarDeclarationNode*> results;
