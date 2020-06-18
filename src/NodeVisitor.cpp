@@ -207,3 +207,18 @@ void NodeVisitor::visitNoOp(AbstractSyntaxTree* node)
 	return;
 }
 
+void NodeVisitor::visitProgram(AbstractSyntaxTree* node)
+{
+	auto nodeType = node->getNodeType();
+	if (nodeType == AbstractSyntaxTree::NodeType::Program)
+	{
+		auto programNode = reinterpret_cast<AbstractSyntaxTreeProgramNode*>(node);
+
+		visit(programNode->getBlock());
+		return;
+	}
+
+	throw std::exception("AbstractSyntaxTree* Is Not AbstractSyntaxTreeNoOpNode*");
+	return;
+}
+

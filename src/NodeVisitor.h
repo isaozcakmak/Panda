@@ -13,6 +13,10 @@
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeCompoundNode.h>
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeVarNode.h>
 #include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeNoOpNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeProgramNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeBlockNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeVarDeclarationNode.h>
+#include <AbstractSyntaxTreeNodes/AbstractSyntaxTreeTypeNode.h>
 #include <Utility/HelperMethods.h>
 
 class NodeVisitor
@@ -33,6 +37,7 @@ private:
 	void visitAssign(AbstractSyntaxTree* node);
 	int visitVar(AbstractSyntaxTree* node);
 	void visitNoOp(AbstractSyntaxTree* node);
+	void visitProgram(AbstractSyntaxTree* node);
 
 private:
 	std::unordered_map<std::string, int> m_variables;
