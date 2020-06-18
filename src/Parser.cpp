@@ -9,7 +9,12 @@ Parser::Parser(Lexer lexer) :
 
 AbstractSyntaxTree* Parser::parse()
 {
-	return program();
+	auto node = program();
+
+	if (m_currentToken.getType() != Token::TokenType::TokenEOF)
+		error();
+
+	return node;
 }
 
 AbstractSyntaxTree* Parser::expr()
