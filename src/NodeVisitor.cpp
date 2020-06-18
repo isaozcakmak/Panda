@@ -218,7 +218,27 @@ void NodeVisitor::visitProgram(AbstractSyntaxTree* node)
 		return;
 	}
 
-	throw std::exception("AbstractSyntaxTree* Is Not AbstractSyntaxTreeNoOpNode*");
+	throw std::exception("AbstractSyntaxTree* Is Not AbstractSyntaxTreeProgramNode*");
+	return;
+}
+
+void NodeVisitor::visitBlock(AbstractSyntaxTree* node)
+{
+	auto nodeType = node->getNodeType();
+	if (nodeType == AbstractSyntaxTree::NodeType::Block)
+	{
+		auto blockNode = reinterpret_cast<AbstractSyntaxTreeBlockNode*>(node);
+
+		for (auto item : blockNode->getDeclarations())
+		{
+			visit(item);
+		}
+
+		visit(blockNode->getCompoundStatement());
+		return;
+	}
+
+	throw std::exception("AbstractSyntaxTree* Is Not AbstractSyntaxTreeBlockNode*");
 	return;
 }
 

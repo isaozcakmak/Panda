@@ -38,6 +38,8 @@ private:
 	int visitVar(AbstractSyntaxTree* node);
 	void visitNoOp(AbstractSyntaxTree* node);
 	void visitProgram(AbstractSyntaxTree* node);
+	void visitBlock(AbstractSyntaxTree* node);
+
 
 private:
 	std::unordered_map<std::string, int> m_variables;
