@@ -85,7 +85,10 @@ int NodeVisitor::visitBinOp(AbstractSyntaxTree* node)
 		case Token::TokenType::Mul:
 			return visit(binOpNode->getLeft()) * visit(binOpNode->getRight());
 			break;
-		case Token::TokenType::Div:
+		case Token::TokenType::IntegerDiv:
+			return visit(binOpNode->getLeft()) / visit(binOpNode->getRight());
+			break;
+		case Token::TokenType::FloatDiv:
 			return visit(binOpNode->getLeft()) / visit(binOpNode->getRight());
 			break;
 		default:
