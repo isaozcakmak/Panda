@@ -23,12 +23,10 @@ AbstractSyntaxTree* Parser::expr()
 		if (token.getType() == Token::TokenType::Plus)
 		{
 			eat(Token::TokenType::Plus);
-			//result += term();
 		}
 		else if (token.getType() == Token::TokenType::Minus)
 		{
 			eat(Token::TokenType::Minus);
-			//result -= term();
 		}
 
 		auto termNode = term();
@@ -98,8 +96,9 @@ AbstractSyntaxTree* Parser::term()
 {
 	auto node = factor();
 
-	while (m_currentToken.getType() == Token::TokenType::Mul || 
-			m_currentToken.getType() == Token::TokenType::Div)
+	while (	m_currentToken.getType() == Token::TokenType::Mul || 
+			m_currentToken.getType() == Token::TokenType::IntegerDiv || 
+			m_currentToken.getType() == Token::TokenType::FloatDiv)
 	{
 		auto token = m_currentToken;
 		auto tokenType = token.getType();
@@ -108,11 +107,12 @@ AbstractSyntaxTree* Parser::term()
 		{
 		case Token::TokenType::Mul:
 			eat(Token::TokenType::Mul);
-			//result *= factor();
 			break;
-		case Token::TokenType::Div:
-			eat(Token::TokenType::Div);
-			//result /= factor();
+		case Token::TokenType::IntegerDiv:
+			eat(Token::TokenType::IntegerDiv);
+			break;
+		case Token::TokenType::FloatDiv:
+			eat(Token::TokenType::FloatDiv);
 			break;
 		default:
 			break;
@@ -241,9 +241,6 @@ std::vector<AbstractSyntaxTree*> Parser::statementList()
 		eat(Token::TokenType::Semi);
 		results.push_back(statement());
 	}
-
-	if (m_currentToken.getType() == Token::TokenType::ID)
-		error();
 
 	return results;
 }
