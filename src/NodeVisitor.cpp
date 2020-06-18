@@ -242,3 +242,15 @@ void NodeVisitor::visitBlock(AbstractSyntaxTree* node)
 	return;
 }
 
+void NodeVisitor::visitVarDecleration(AbstractSyntaxTree* node)
+{
+	auto nodeType = node->getNodeType();
+	if (nodeType == AbstractSyntaxTree::NodeType::VarDecl)
+	{
+		return;
+	}
+
+	throw std::exception("AbstractSyntaxTree* Is Not AbstractSyntaxTreeVarDeclarationNode*");
+	return;
+}
+

@@ -39,6 +39,7 @@ private:
 	void visitNoOp(AbstractSyntaxTree* node);
 	void visitProgram(AbstractSyntaxTree* node);
 	void visitBlock(AbstractSyntaxTree* node);
+	void visitVarDecleration(AbstractSyntaxTree* node);
 
 
 private:
