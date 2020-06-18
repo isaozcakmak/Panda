@@ -64,13 +64,20 @@ AbstractSyntaxTree* Parser::factor()
 			return new AbstractSyntaxTreeUnaryOpNode(token, factor());
 			break;
 		}
-	case Token::TokenType::Integer:
+	case Token::TokenType::IntegerConst:
 		{
-			eat(Token::TokenType::Integer);
+			eat(Token::TokenType::IntegerConst);
 			//return token.getValue();
 			return new AbstractSyntaxTreeNumNode(token);
 			break;
 		}
+	case Token::TokenType::RealConst:
+	{
+		eat(Token::TokenType::RealConst);
+		//return token.getValue();
+		return new AbstractSyntaxTreeNumNode(token);
+		break;
+	}
 	case Token::TokenType::LeftParenthesis:
 		{
 			eat(Token::TokenType::LeftParenthesis);
