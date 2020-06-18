@@ -40,6 +40,7 @@ private:
 	void visitProgram(AbstractSyntaxTree* node);
 	void visitBlock(AbstractSyntaxTree* node);
 	void visitVarDecleration(AbstractSyntaxTree* node);
+	void visitType(AbstractSyntaxTree* node);
 
 
 private:
