@@ -32,6 +32,18 @@ int NodeVisitor::visit(AbstractSyntaxTree* node)
 	case AbstractSyntaxTree::NodeType::NoOp:
 		visitNoOp(node);
 		break;
+	case AbstractSyntaxTree::NodeType::Program:
+		visitProgram(node);
+		break;
+	case AbstractSyntaxTree::NodeType::Block:
+		visitBlock(node);
+		break;
+	case AbstractSyntaxTree::NodeType::VarDecl:
+		visitVarDecleration(node);
+		break;
+	case AbstractSyntaxTree::NodeType::Type:
+		visitType(node);
+		break;
 	default:
 		break;
 	}
