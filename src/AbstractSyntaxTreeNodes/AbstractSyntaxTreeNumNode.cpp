@@ -14,6 +14,17 @@ AbstractSyntaxTree::NodeType AbstractSyntaxTreeNumNode::getNodeType()
 
 double AbstractSyntaxTreeNumNode::getTokenValue()
 {
-	return m_token.getType() == Token::TokenType::Integer ? m_token.getInteger() : m_token.getDouble();
+	if (m_token.getType() == Token::TokenType::Integer ||
+		m_token.getType() == Token::TokenType::IntegerConst)
+	{
+		return m_token.getInteger();
+	}
+	else if (m_token.getType() == Token::TokenType::Real ||
+			m_token.getType() == Token::TokenType::RealConst)
+	{
+		return m_token.getDouble();
+	}
+
+	return 0.0;
 }
 
