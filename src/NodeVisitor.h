@@ -25,26 +25,25 @@ public:
 	NodeVisitor();
 	~NodeVisitor() {}
 
-	int visit(AbstractSyntaxTree* node);
-	std::unordered_map<std::string, int> getVariables();
+	double visit(AbstractSyntaxTree* node);
+	std::unordered_map<std::string, double> getVariables();
 	void printVariables();
 
 private:
-	int visitNum(AbstractSyntaxTree* node);
-	int visitBinOp(AbstractSyntaxTree* node);
-	int visitUnaryOp(AbstractSyntaxTree* node);
+	double visitNum(AbstractSyntaxTree* node);
+	double visitBinOp(AbstractSyntaxTree* node);
+	double visitUnaryOp(AbstractSyntaxTree* node);
 	void visitCompound(AbstractSyntaxTree* node);
 	void visitAssign(AbstractSyntaxTree* node);
-	int visitVar(AbstractSyntaxTree* node);
+	double visitVar(AbstractSyntaxTree* node);
 	void visitNoOp(AbstractSyntaxTree* node);
 	void visitProgram(AbstractSyntaxTree* node);
 	void visitBlock(AbstractSyntaxTree* node);
 	void visitVarDecleration(AbstractSyntaxTree* node);
 	void visitType(AbstractSyntaxTree* node);
 
-
 private:
-	std::unordered_map<std::string, int> m_variables;
+	std::unordered_map<std::string, double> m_variables;
 };
 
 

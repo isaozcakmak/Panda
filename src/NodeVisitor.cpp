@@ -5,7 +5,7 @@ NodeVisitor::NodeVisitor()
 {
 }
 
-int NodeVisitor::visit(AbstractSyntaxTree* node)
+double NodeVisitor::visit(AbstractSyntaxTree* node)
 {
 	auto nodeType = node->getNodeType();
 
@@ -51,7 +51,7 @@ int NodeVisitor::visit(AbstractSyntaxTree* node)
 	return 0;
 }
 
-std::unordered_map<std::string, int> NodeVisitor::getVariables()
+std::unordered_map<std::string, double> NodeVisitor::getVariables()
 {
 	return m_variables;
 }
@@ -65,7 +65,7 @@ void NodeVisitor::printVariables()
 	}
 }
 
-int NodeVisitor::visitNum(AbstractSyntaxTree* node)
+double NodeVisitor::visitNum(AbstractSyntaxTree* node)
 {
 	auto nodeType = node->getNodeType();
 	if (nodeType == AbstractSyntaxTree::NodeType::Num)
@@ -77,7 +77,7 @@ int NodeVisitor::visitNum(AbstractSyntaxTree* node)
 	return 0;
 }
 
-int NodeVisitor::visitBinOp(AbstractSyntaxTree* node)
+double NodeVisitor::visitBinOp(AbstractSyntaxTree* node)
 {
 	auto nodeType = node->getNodeType();
 	if (nodeType == AbstractSyntaxTree::NodeType::BinOp)
@@ -98,7 +98,7 @@ int NodeVisitor::visitBinOp(AbstractSyntaxTree* node)
 			return visit(binOpNode->getLeft()) * visit(binOpNode->getRight());
 			break;
 		case Token::TokenType::IntegerDiv:
-			return visit(binOpNode->getLeft()) / visit(binOpNode->getRight());
+			return static_cast<int>(visit(binOpNode->getLeft()) / visit(binOpNode->getRight()));
 			break;
 		case Token::TokenType::FloatDiv:
 			return visit(binOpNode->getLeft()) / visit(binOpNode->getRight());
@@ -115,7 +115,7 @@ int NodeVisitor::visitBinOp(AbstractSyntaxTree* node)
 	return 0;
 }
 
-int NodeVisitor::visitUnaryOp(AbstractSyntaxTree* node)
+double NodeVisitor::visitUnaryOp(AbstractSyntaxTree* node)
 {
 	auto nodeType = node->getNodeType();
 	if (nodeType == AbstractSyntaxTree::NodeType::UnaryOp)
@@ -184,7 +184,7 @@ void NodeVisitor::visitAssign(AbstractSyntaxTree* node)
 	return;
 }
 
-int NodeVisitor::visitVar(AbstractSyntaxTree* node)
+double NodeVisitor::visitVar(AbstractSyntaxTree* node)
 {
 	auto nodeType = node->getNodeType();
 	if (nodeType == AbstractSyntaxTree::NodeType::Var)
