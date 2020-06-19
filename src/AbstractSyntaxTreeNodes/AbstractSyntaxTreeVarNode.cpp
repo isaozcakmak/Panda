@@ -12,9 +12,9 @@ AbstractSyntaxTree::NodeType AbstractSyntaxTreeVarNode::getNodeType()
 	return m_nodeType;
 }
 
-int AbstractSyntaxTreeVarNode::getTokenValue()
+double AbstractSyntaxTreeVarNode::getTokenValue()
 {
-	return m_token.getValue();
+	return m_token.getType() == Token::TokenType::Integer ? m_token.getInteger() : m_token.getDouble();
 }
 
 std::string AbstractSyntaxTreeVarNode::getTokenString()

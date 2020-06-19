@@ -13,7 +13,7 @@ public:
 	~AbstractSyntaxTreeVarNode() {}
 	
 	virtual NodeType getNodeType();
-	int getTokenValue();
+	double getTokenValue();
 	std::string getTokenString();
 
 private:
