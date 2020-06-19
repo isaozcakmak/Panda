@@ -61,7 +61,7 @@ void NodeVisitor::printVariables()
 	for (auto variable : m_variables)
 	{
 		std::cout << "Variable Name: " << variable.first <<
-			" Variable Value: " << variable.second << std::endl;
+			"\tVariable Value: " << variable.second << std::endl;
 	}
 }
 
