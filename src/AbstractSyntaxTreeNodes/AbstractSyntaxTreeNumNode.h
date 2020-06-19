@@ -13,7 +13,7 @@ public:
 	~AbstractSyntaxTreeNumNode() {}
 	
 	virtual NodeType getNodeType();
-	int getTokenValue();
+	double getTokenValue();
 
 private:
 	NodeType m_nodeType;

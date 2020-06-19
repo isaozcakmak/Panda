@@ -12,8 +12,8 @@ AbstractSyntaxTree::NodeType AbstractSyntaxTreeNumNode::getNodeType()
 	return m_nodeType;
 }
 
-int AbstractSyntaxTreeNumNode::getTokenValue()
+double AbstractSyntaxTreeNumNode::getTokenValue()
 {
-	return m_token.getValue();
+	return m_token.getType() == Token::TokenType::Integer ? m_token.getInteger() : m_token.getDouble();
 }
 
