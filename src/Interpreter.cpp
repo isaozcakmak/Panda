@@ -6,7 +6,7 @@ Interpreter::Interpreter(Parser parser) :
 {
 }
 
-int Interpreter::interpret()
+double Interpreter::interpret()
 {
 	NodeVisitor nodeVisitor;
 	auto abstractSyntaxTree = m_parser.parse();

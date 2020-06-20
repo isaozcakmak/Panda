@@ -12,7 +12,7 @@ public:
 	Interpreter(Parser parser);
 	~Interpreter() {}
 
-	int interpret();
+	double interpret();
 
 private:
 	Parser m_parser;
