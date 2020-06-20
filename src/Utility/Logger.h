@@ -4,6 +4,9 @@
 #include <Utility/File.h>
 #include <string>
 
+#define Log(message) \
+	Utility::Logger::Instance().add(__FUNCTION__, size_t(__LINE__), message)
+
 namespace Utility
 {
 	class Logger
@@ -20,6 +23,8 @@ namespace Utility
 			static Logger instance;
 			return instance;
 		}
+
+		void add(const std::string& function, size_t line, const std::string& message);
 
 	private:
 		Logger();
