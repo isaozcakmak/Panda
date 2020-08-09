@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 
 	#ifdef SPI_DEBUG
 		filePath = ".\\test\\test.pas";
-	#endif // PANDA_DEBUG
+	#endif // SPI_DEBUG
 
 	if ( filePath.empty() )
 	{
